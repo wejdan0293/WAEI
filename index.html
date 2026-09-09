@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -8,89 +8,138 @@
 <title>WAEI | واعي — Cyber Advisor</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg: #07111f;
+    --bg-soft: #0b1728;
+    --card: rgba(14, 29, 48, 0.78);
+    --card-solid: #0e1d30;
+
+    --border: rgba(148, 163, 184, 0.14);
+    --border-hover: rgba(56, 189, 248, 0.35);
+
+    --text: #edf6ff;
+    --muted: #8da2b8;
+
+    --primary: #22d3ee;
+    --primary-soft: rgba(34, 211, 238, 0.10);
+
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #fb7185;
+    --critical: #f43f5e;
+
+    --radius: 20px;
+}
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
-:root {
-    --bg: #06101c;
-    --bg-soft: #0b1727;
-    --card: rgba(12, 27, 43, .92);
-    --card-soft: #081622;
-    --border: #273d54;
-    --text: #ffffff;
-    --muted: #91a7ba;
-    --muted-2: #9fb2c8;
-    --accent: #35d0ba;
-    --accent-soft: rgba(53,208,186,.10);
-    --danger: #ff7777;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Tahoma, sans-serif;
-    background:
-        radial-gradient(circle at top right, #173b59 0%, transparent 35%),
-        linear-gradient(135deg, var(--bg), var(--bg-soft) 55%, #06101b);
-    color: var(--text);
+    margin: 0;
     min-height: 100vh;
-}
-
-.container {
-    width: 92%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 28px 0 40px;
+    font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 85% 10%, rgba(34,211,238,.07), transparent 28%),
+        radial-gradient(circle at 10% 90%, rgba(59,130,246,.05), transparent 30%),
+        var(--bg);
+    color: var(--text);
 }
 
 /* =========================
    HEADER
 ========================= */
 
-header {
+.header {
+    height: 76px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7,17,31,.82);
+    backdrop-filter: blur(18px);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: 1180px;
+    height: 100%;
+    margin: auto;
+    padding: 0 24px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .logo {
-    font-size: 30px;
-    font-weight: bold;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logo span {
-    color: var(--accent);
+.logo svg {
+    width: 43px;
+    height: 43px;
 }
 
-.status {
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-en {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+.brand-ar {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.header-status {
     display: flex;
     align-items: center;
     gap: 8px;
+
+    font-size: 12px;
     color: var(--muted);
-    font-size: 13px;
 }
 
 .status-dot {
-    width: 9px;
-    height: 9px;
-    background: var(--accent);
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent);
+    background: var(--success);
+    box-shadow: 0 0 12px rgba(52,211,153,.7);
 }
 
 /* =========================
-   PAGES
+   MAIN
 ========================= */
 
-.page {
-    display: none;
-}
-
-.page.active {
-    display: block;
+.container {
+    max-width: 1180px;
+    margin: auto;
+    padding: 60px 24px 90px;
 }
 
 /* =========================
@@ -98,210 +147,286 @@ header {
 ========================= */
 
 .hero {
+    max-width: 820px;
+    margin: 0 auto 46px;
     text-align: center;
-    padding: 48px 20px 28px;
 }
 
 .hero-badge {
-    display: inline-block;
-    padding: 8px 14px;
-    border: 1px solid rgba(53,208,186,.25);
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 30px;
-    font-size: 13px;
-    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 13px;
+    border: 1px solid rgba(34,211,238,.18);
+    background: rgba(34,211,238,.06);
+    border-radius: 999px;
+
+    color: #8eeaf5;
+    font-size: 12px;
+    margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-    line-height: 1.25;
+    margin: 0;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -1px;
 }
 
 .hero h1 span {
-    color: var(--accent);
+    color: var(--primary);
 }
 
 .hero p {
-    color: var(--muted-2);
-    font-size: 18px;
-    line-height: 1.9;
-    max-width: 720px;
-    margin: auto;
-}
+    max-width: 650px;
+    margin: 18px auto 0;
 
-/* =========================
-   CARD
-========================= */
-
-.card {
-    background: var(--card);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 22px;
-    padding: 28px;
-    margin-bottom: 20px;
-    box-shadow: 0 18px 45px rgba(0,0,0,.25);
-}
-
-.card h2 {
-    font-size: 19px;
-    margin-bottom: 8px;
-}
-
-.card-description {
     color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.9;
 }
 
 /* =========================
-   TEXTAREA
+   ADVISOR CARD
 ========================= */
+
+.advisor {
+    max-width: 900px;
+    margin: auto;
+
+    background: linear-gradient(
+        145deg,
+        rgba(15,31,51,.94),
+        rgba(8,20,35,.94)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 26px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.section-label {
+    font-size: 13px;
+    color: #b5c7d9;
+    margin-bottom: 10px;
+}
 
 textarea {
     width: 100%;
     min-height: 165px;
+
     resize: vertical;
-    background: #071421;
-    border: 1px solid #294057;
-    color: white;
-    border-radius: 15px;
-    padding: 18px;
-    font-size: 16px;
-    line-height: 1.8;
-    outline: none;
-}
 
-textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(53,208,186,.07);
-}
-
-textarea::placeholder {
-    color: #637b90;
-}
-
-/* =========================
-   SCREENSHOT UPLOAD
-========================= */
-
-.upload-area {
-    border: 1px dashed #36516a;
-    background: #071421;
+    border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 25px;
-    text-align: center;
-    cursor: pointer;
+
+    background: rgba(3,11,21,.65);
+
+    color: var(--text);
+
+    padding: 18px;
+
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.9;
+
+    outline: none;
+
     transition: .2s;
 }
 
-.upload-area:hover {
-    border-color: var(--accent);
-    background: rgba(53,208,186,.035);
+textarea::placeholder {
+    color: #60758a;
 }
 
-.upload-icon {
-    font-size: 28px;
-    margin-bottom: 8px;
-}
-
-.upload-title {
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-
-.upload-description {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-#screenshotInput {
-    display: none;
-}
-
-.image-preview {
-    display: none;
-    margin-top: 15px;
-    position: relative;
-}
-
-.image-preview img {
-    width: 100%;
-    max-height: 280px;
-    object-fit: contain;
-    border-radius: 13px;
-    background: #050d15;
-    border: 1px solid var(--border);
-}
-
-.remove-image {
-    margin-top: 10px;
-    background: transparent;
-    border: 1px solid #4a3a3a;
-    color: #ffaaaa;
-    border-radius: 9px;
-    padding: 8px 13px;
-    cursor: pointer;
+textarea:focus {
+    border-color: rgba(34,211,238,.45);
+    box-shadow: 0 0 0 4px rgba(34,211,238,.06);
 }
 
 /* =========================
    EXPOSURE
 ========================= */
 
+.exposure-section {
+    margin-top: 24px;
+}
+
 .exposure-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
 
 .exposure {
-    background: #091827;
-    border: 1px solid #273d54;
-    border-radius: 13px;
-    padding: 14px 10px;
     cursor: pointer;
-    color: #b9c9d8;
-    text-align: center;
+
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.018);
+
+    border-radius: 14px;
+    padding: 13px;
+
     transition: .2s;
-    line-height: 1.5;
 }
 
 .exposure:hover {
-    border-color: var(--accent);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
 }
 
-.exposure.selected {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    color: white;
+.exposure.active {
+    border-color: rgba(34,211,238,.55);
+    background: var(--primary-soft);
+}
+
+.exposure-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.exposure-desc {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 5px;
 }
 
 /* =========================
-   BUTTON
+   UPLOAD
 ========================= */
 
-.primary-btn {
-    width: 100%;
+.upload {
+    margin-top: 18px;
+
+    border: 1px dashed rgba(148,163,184,.22);
+    border-radius: 16px;
+
     padding: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,.012);
+}
+
+.upload-left {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.upload-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(34,211,238,.08);
+    color: var(--primary);
+}
+
+.upload-title {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.upload-desc {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.file-button {
+    cursor: pointer;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.035);
+
+    color: #c9d8e7;
+
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.file-button:hover {
+    border-color: var(--border-hover);
+}
+
+#fileInput {
+    display: none;
+}
+
+.preview {
+    display: none;
+    margin-top: 12px;
+
+    border-radius: 14px;
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+}
+
+.preview img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    background: #020810;
+}
+
+/* =========================
+   ACTION
+========================= */
+
+.action {
     margin-top: 22px;
+}
+
+.analyze {
+    width: 100%;
+
     border: none;
     border-radius: 14px;
-    background: var(--accent);
-    color: #06101b;
-    font-size: 18px;
-    font-weight: bold;
+
+    padding: 15px;
+
     cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #22d3ee,
+        #38bdf8
+    );
+
+    color: #03111d;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
     transition: .2s;
 }
 
-.primary-btn:hover {
-    transform: translateY(-2px);
+.analyze:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(34,211,238,.15);
 }
 
-.primary-btn:disabled {
+.analyze:disabled {
     opacity: .5;
     cursor: not-allowed;
     transform: none;
@@ -314,22 +439,23 @@ textarea::placeholder {
 .loading {
     display: none;
     text-align: center;
-    padding: 20px;
-    color: var(--muted-2);
+    padding: 25px;
+    color: var(--muted);
+    font-size: 13px;
 }
 
-.loader {
-    width: 28px;
-    height: 28px;
-    border: 3px solid #294057;
-    border-top-color: var(--accent);
+.spinner {
+    width: 24px;
+    height: 24px;
+
+    border: 2px solid rgba(255,255,255,.1);
+    border-top-color: var(--primary);
+
     border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 12px;
-}
 
-.loading-text {
-    line-height: 1.7;
+    margin: 0 auto 10px;
+
+    animation: spin .8s linear infinite;
 }
 
 @keyframes spin {
@@ -344,847 +470,701 @@ textarea::placeholder {
 
 .error {
     display: none;
-    margin-top: 16px;
-    padding: 15px;
+
+    margin-top: 15px;
+
+    padding: 13px 15px;
+
     border-radius: 12px;
-    background: rgba(255,70,70,.08);
-    border: 1px solid rgba(255,70,70,.25);
-    color: #ffaaaa;
-    line-height: 1.7;
+
+    background: rgba(251,113,133,.06);
+    border: 1px solid rgba(251,113,133,.18);
+
+    color: #fda4af;
+
+    font-size: 12px;
 }
 
 /* =========================
-   PRIVACY NOTE
+   RESULTS
 ========================= */
 
-.privacy-note {
-    margin-top: 12px;
-    color: #6f879b;
+.results {
+    display: none;
+
+    max-width: 1080px;
+    margin: 55px auto 0;
+}
+
+.results-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.results-title h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.results-title p {
+    margin: 7px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================
+   OVERVIEW
+========================= */
+
+.overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+}
+
+.result-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+}
+
+.card-label {
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.risk-value {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.risk-score {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.compromise-value {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* =========================
+   DETAIL GRID
+========================= */
+
+.detail-grid {
+    margin-top: 14px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.result-card h3 {
+    margin: 0 0 16px;
+    font-size: 14px;
+}
+
+.result-card ul {
+    margin: 0;
+    padding-right: 18px;
+}
+
+.result-card li {
+    margin-bottom: 9px;
+    color: #bdcada;
     font-size: 12px;
     line-height: 1.7;
 }
 
 /* =========================
-   PAGE 2 HEADER
+   TAGS
 ========================= */
 
-.back-btn {
-    background: transparent;
-    border: 1px solid #2b4258;
-    color: #a9bdcf;
-    padding: 10px 17px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 22px;
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
 }
 
-.result-header {
-    margin-bottom: 22px;
+.tag {
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    background: rgba(148,163,184,.07);
+    border: 1px solid rgba(148,163,184,.10);
+
+    color: #b9c9d8;
+
+    font-size: 10px;
 }
 
-.result-header h1 {
-    font-size: 31px;
+/* =========================
+   ACTIONS
+========================= */
+
+.action-item {
+    padding: 12px;
+
+    border-radius: 11px;
+
+    background: rgba(255,255,255,.025);
+
     margin-bottom: 8px;
-}
 
-.result-header p {
-    color: var(--muted);
+    font-size: 12px;
     line-height: 1.7;
 }
 
-/* =========================
-   RISK
-========================= */
-
-.risk-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 13px;
-}
-
-.risk-box {
-    background: var(--card-soft);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 22px;
-    text-align: center;
-}
-
-.risk-label {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-
-.risk-value {
-    font-size: 27px;
-    font-weight: bold;
+.action-item:last-child {
+    margin-bottom: 0;
 }
 
 /* =========================
-   ADVISOR STATUS
+   AWARENESS
 ========================= */
-
-.advisor-status {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 13px;
-}
-
-.status-box {
-    background: var(--card-soft);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-}
-
-.status-box .label {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 9px;
-}
-
-.status-box .value {
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.status-description {
-    color: #aebfd0;
-    margin-top: 7px;
-    line-height: 1.7;
-    font-size: 13px;
-}
-
-/* =========================
-   SECTION
-========================= */
-
-.section {
-    margin-top: 25px;
-}
-
-.section h2 {
-    font-size: 18px;
-    margin-bottom: 13px;
-}
-
-.section h2 span {
-    color: var(--accent);
-}
-
-.content-box {
-    background: var(--card-soft);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 20px;
-    line-height: 1.8;
-    color: #d2deea;
-}
-
-ul {
-    padding-right: 22px;
-    line-height: 2;
-    color: #d2deea;
-}
 
 .awareness {
-    border-right: 4px solid var(--accent);
-    background: var(--accent-soft);
-    padding: 18px;
-    border-radius: 10px;
-    line-height: 1.9;
-    color: #dce8f1;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,211,238,.06),
+            rgba(59,130,246,.025)
+        );
+
+    border-color: rgba(34,211,238,.13);
 }
 
-/* =========================
-   CHAT
-========================= */
-
-.chat-container {
-    background: var(--card-soft);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    overflow: hidden;
-}
-
-.chat-title {
-    padding: 18px;
-    border-bottom: 1px solid var(--border);
-}
-
-.chat-title strong {
-    color: var(--accent);
-}
-
-.chat-title small {
-    color: var(--muted);
-    display: inline-block;
-    margin-top: 5px;
-}
-
-.chat-messages {
-    min-height: 230px;
-    max-height: 380px;
-    overflow-y: auto;
-    padding: 18px;
-}
-
-.message {
-    max-width: 82%;
-    padding: 13px 16px;
-    border-radius: 14px;
-    margin-bottom: 12px;
-    line-height: 1.7;
-    white-space: pre-wrap;
-}
-
-.message.ai {
-    background: #102333;
-    margin-left: auto;
-    border-top-right-radius: 4px;
-}
-
-.message.user {
-    background: var(--accent-soft);
-    margin-right: auto;
-    border-top-left-radius: 4px;
-}
-
-.chat-input {
-    display: flex;
-    gap: 10px;
-    padding: 15px;
-    border-top: 1px solid var(--border);
-}
-
-.chat-input input {
-    flex: 1;
-    background: #071421;
-    border: 1px solid #294057;
-    border-radius: 11px;
-    padding: 13px;
-    color: white;
-    outline: none;
-}
-
-.chat-input input:focus {
-    border-color: var(--accent);
-}
-
-.chat-input button {
-    border: none;
-    background: var(--accent);
-    color: #06101b;
-    border-radius: 11px;
-    padding: 0 22px;
-    font-weight: bold;
-    cursor: pointer;
+.awareness-message {
+    color: #c6d9e9;
+    font-size: 13px;
+    line-height: 2;
 }
 
 /* =========================
    FOOTER
 ========================= */
 
-footer {
+.footer {
+    max-width: 1080px;
+    margin: 60px auto 0;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+
     text-align: center;
-    color: #647b90;
-    font-size: 12px;
-    padding: 28px 0 10px;
+
+    color: #61778d;
+
+    font-size: 10px;
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media(max-width:700px) {
+@media (max-width: 800px) {
 
     .container {
-        width: 94%;
+        padding: 40px 16px 60px;
     }
 
-    .hero {
-        padding-top: 30px;
+    .header-inner {
+        padding: 0 16px;
     }
 
-    .hero h1 {
-        font-size: 36px;
+    .header-status {
+        display: none;
     }
 
-    .risk-card,
-    .advisor-status {
+    .advisor {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .exposure-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .overview {
         grid-template-columns: 1fr;
     }
 
-    header {
-        flex-direction: column;
-        gap: 12px;
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .upload {
         align-items: flex-start;
-    }
-
-    .chat-input {
+        gap: 12px;
         flex-direction: column;
     }
 
-    .chat-input button {
-        padding: 13px;
-    }
-
-    .message {
-        max-width: 92%;
+    .file-button {
+        width: 100%;
     }
 }
 
-</style>
+@media (max-width: 430px) {
 
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .exposure-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- =========================
+     HEADER
+========================= -->
 
-<header>
+<header class="header">
 
-```
+<div class="header-inner">
+
+<div class="brand">
+
 <div class="logo">
-    WAEI <span>| واعي</span>
+
+<!-- Custom WAEI Logo -->
+<svg viewBox="0 0 100 100" fill="none"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+d="M50 7
+L84 20
+V46
+C84 68 70 84 50 93
+C30 84 16 68 16 46
+V20
+L50 7Z"
+stroke="#22D3EE"
+stroke-width="5"
+stroke-linejoin="round"/>
+
+<path
+d="M30 49
+C36 38 43 33 50 33
+C57 33 64 38 70 49
+C64 60 57 65 50 65
+C43 65 36 60 30 49Z"
+stroke="#8EEAF5"
+stroke-width="4"/>
+
+<circle
+cx="50"
+cy="49"
+r="7"
+fill="#22D3EE"/>
+
+</svg>
+
 </div>
 
-<div class="status">
-    <div class="status-dot"></div>
-    WAEI Online
+<div class="brand-text">
+<div class="brand-en">WAEI</div>
+<div class="brand-ar">واعي • Cyber Advisor</div>
 </div>
-```
+
+</div>
+
+<div class="header-status">
+<span class="status-dot"></span>
+WAEI Security Advisor
+</div>
+
+</div>
 
 </header>
 
-<!-- =====================================================
-     PAGE 1 — CASE INTAKE
-===================================================== -->
 
-<section id="page1" class="page active">
+<!-- =========================
+     MAIN
+========================= -->
 
-```
-<div class="hero">
+<main class="container">
 
-    <div class="hero-badge">
-        🛡️ Cybersecurity Advisor
-    </div>
+<section class="hero">
 
-    <h1>
-        مستشارك السايبر
-        <span>واعي</span>
-    </h1>
-
-    <p>
-        احكِ لواعي ما حدث، وسيساعدك على فهم الحالة،
-        تقييم المؤشرات والأدلة، وتحديد الخطوات المناسبة لحمايتك.
-    </p>
-
+<div class="hero-badge">
+<span>✦</span>
+Cybersecurity Intelligence
 </div>
 
+<h1>
+خلك <span>واعي</span> قبل ما تتصرف
+</h1>
 
-<!-- CASE DESCRIPTION -->
-
-<div class="card">
-
-    <h2>
-        ماذا حدث؟
-    </h2>
-
-    <div class="card-description">
-        لا تحتاجين معرفة المصطلح التقني. اكتبي ما حدث بطريقتك الطبيعية.
-    </div>
-
-    <textarea
-        id="message"
-        placeholder="مثال: وصلتني رسالة من البنك تقول إن حسابي سيتوقف. ضغطت على الرابط ودخلت كلمة المرور وبعدها طلب مني رمز OTP..."
-    ></textarea>
-
-</div>
-
-
-<!-- SCREENSHOT -->
-
-<div class="card">
-
-    <h2>
-        هل لديك صورة أو لقطة شاشة؟
-    </h2>
-
-    <div class="card-description">
-        يمكنك إرفاق لقطة شاشة للرسالة أو الموقع المشبوه لمساعدة واعي
-        في تحليل الأدلة الموجودة فيها.
-    </div>
-
-    <label
-        class="upload-area"
-        for="screenshotInput"
-    >
-
-        <div class="upload-icon">
-            📷
-        </div>
-
-        <div class="upload-title">
-            إضافة لقطة شاشة
-        </div>
-
-        <div class="upload-description">
-            PNG أو JPG — الصورة تستخدم كدليل للتحليل
-        </div>
-
-    </label>
-
-    <input
-        type="file"
-        id="screenshotInput"
-        accept="image/png,image/jpeg,image/webp"
-    >
-
-    <div
-        class="image-preview"
-        id="imagePreview"
-    >
-
-        <img
-            id="previewImage"
-            alt="معاينة الصورة"
-        >
-
-        <button
-            type="button"
-            class="remove-image"
-            id="removeImage"
-        >
-            إزالة الصورة
-        </button>
-
-    </div>
-
-    <div class="privacy-note">
-        ملاحظة: وجود صورة مشبوهة لا يعني بحد ذاته أن الحساب تم اختراقه.
-        واعي يقيّم الصورة مع بقية أدلة الحالة.
-    </div>
-
-</div>
-
-
-<!-- EXPOSURE -->
-
-<div class="card">
-
-    <h2>
-        ماذا فعلتِ بعد استلام الرسالة؟
-    </h2>
-
-    <div class="card-description">
-        هذه المعلومة تساعد واعي على تحديد مستوى التعرض والإجراءات المناسبة.
-    </div>
-
-    <div class="exposure-grid">
-
-        <div class="exposure selected" data-value="received_only">
-            استلمت الرسالة فقط
-        </div>
-
-        <div class="exposure" data-value="opened_message">
-            فتحت الرسالة
-        </div>
-
-        <div class="exposure" data-value="clicked_link">
-            ضغطت على الرابط
-        </div>
-
-        <div class="exposure" data-value="visited_website">
-            دخلت الموقع
-        </div>
-
-        <div class="exposure" data-value="downloaded_file">
-            حملت ملفًا
-        </div>
-
-        <div class="exposure" data-value="installed_application">
-            ثبت تطبيقًا
-        </div>
-
-        <div class="exposure" data-value="entered_personal_data">
-            أدخلت بيانات شخصية
-        </div>
-
-        <div class="exposure" data-value="entered_credentials">
-            أدخلت بيانات الدخول
-        </div>
-
-        <div class="exposure" data-value="shared_otp">
-            شاركت رمز OTP
-        </div>
-
-        <div class="exposure" data-value="made_payment">
-            أجريت دفعة
-        </div>
-
-        <div class="exposure" data-value="transferred_money">
-            حولت أموالًا
-        </div>
-
-        <div class="exposure" data-value="suspected_account_compromise">
-            أشتبه باختراق الحساب
-        </div>
-
-    </div>
-
-
-    <button
-        class="primary-btn"
-        id="analyzeButton"
-    >
-        تحليل الحالة بواسطة واعي
-    </button>
-
-
-    <div
-        class="loading"
-        id="loading"
-    >
-
-        <div class="loader"></div>
-
-        <div class="loading-text">
-            جاري فهم الحالة وتحليل المؤشرات...
-        </div>
-
-    </div>
-
-
-    <div
-        class="error"
-        id="error"
-    ></div>
-
-</div>
-```
+<p>
+واعي يساعدك تفهم الرسائل والروابط والمواقف المشبوهة،
+ويقيّم مستوى الخطر ويوجهك للخطوة الصحيحة.
+</p>
 
 </section>
 
-<!-- =====================================================
-     PAGE 2 — ADVISOR RESULT
-===================================================== -->
 
-<section id="page2" class="page">
+<!-- =========================
+     ADVISOR
+========================= -->
 
-```
+<section class="advisor">
+
+<div class="section-label">
+وش صار معك؟
+</div>
+
+<textarea
+id="message"
+placeholder="مثال:
+وصلتني رسالة SMS تقول إن حسابي البنكي سيتوقف.
+ضغطت على الرابط وأدخلت اسم المستخدم وكلمة المرور..."
+></textarea>
+
+
+<!-- Exposure -->
+
+<div class="exposure-section">
+
+<div class="section-label">
+وش الإجراء اللي صار؟
+</div>
+
+<div class="exposure-grid">
+
+<div class="exposure active"
+data-value="received_only">
+
+<div class="exposure-title">
+استلمت الرسالة فقط
+</div>
+
+<div class="exposure-desc">
+ما فتحت الرابط
+</div>
+
+</div>
+
+
+<div class="exposure"
+data-value="clicked_link">
+
+<div class="exposure-title">
+ضغطت على الرابط
+</div>
+
+<div class="exposure-desc">
+فتحت الرابط
+</div>
+
+</div>
+
+
+<div class="exposure"
+data-value="entered_credentials">
+
+<div class="exposure-title">
+أدخلت بيانات الدخول
+</div>
+
+<div class="exposure-desc">
+اسم مستخدم أو كلمة مرور
+</div>
+
+</div>
+
+
+<div class="exposure"
+data-value="shared_otp">
+
+<div class="exposure-title">
+شاركت OTP
+</div>
+
+<div class="exposure-desc">
+أرسلت رمز التحقق
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Screenshot -->
+
+<div class="upload">
+
+<div class="upload-left">
+
+<div class="upload-icon">
+⌁
+</div>
+
+<div>
+
+<div class="upload-title">
+عندك Screenshot؟
+</div>
+
+<div class="upload-desc">
+تقدر تضيف صورة للرسالة أو الصفحة المشبوهة
+</div>
+
+</div>
+
+</div>
+
+<label class="file-button">
+
+إضافة صورة
+
+<input
+type="file"
+id="fileInput"
+accept="image/*"
+/>
+
+</label>
+
+</div>
+
+
+<div class="preview" id="preview">
+<img id="previewImage">
+</div>
+
+
+<div class="action">
+
 <button
-    class="back-btn"
-    onclick="goToPage1()"
+class="analyze"
+id="analyzeBtn"
 >
-    ← تحليل حالة جديدة
+
+حلّل الحالة
+
 </button>
 
+</div>
 
-<div class="result-header">
 
-    <h1>
-        واعي حلّل حالتك
-    </h1>
+<div class="loading" id="loading">
 
-    <p>
-        هذه النتيجة مبنية على المعلومات والأدلة التي تم توفيرها.
-        إذا ظهرت معلومة جديدة، يمكنك مناقشتها مع واعي.
-    </p>
+<div class="spinner"></div>
+
+جاري تحليل الحالة...
 
 </div>
 
 
-<!-- RISK -->
-
-<div class="card">
-
-    <div class="risk-card">
-
-        <div class="risk-box">
-
-            <div class="risk-label">
-                مستوى الخطر
-            </div>
-
-            <div
-                class="risk-value"
-                id="riskLevel"
-            >
-                —
-            </div>
-
-        </div>
-
-
-        <div class="risk-box">
-
-            <div class="risk-label">
-                درجة الخطر
-            </div>
-
-            <div
-                class="risk-value"
-                id="riskScore"
-            >
-                —
-            </div>
-
-        </div>
-
-
-        <div class="risk-box">
-
-            <div class="risk-label">
-                القرار
-            </div>
-
-            <div
-                class="risk-value"
-                id="decision"
-            >
-                —
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ADVISOR ASSESSMENT -->
-
-<div class="card">
-
-    <div class="advisor-status">
-
-        <div class="status-box">
-
-            <div class="label">
-                حالة الاختراق
-            </div>
-
-            <div
-                class="value"
-                id="compromiseStatus"
-            >
-                غير محدد
-            </div>
-
-            <div
-                class="status-description"
-                id="compromiseReason"
-            >
-                لا توجد معلومات كافية بعد.
-            </div>
-
-        </div>
-
-
-        <div class="status-box">
-
-            <div class="label">
-                قوة الأدلة
-            </div>
-
-            <div
-                class="value"
-                id="evidenceStrength"
-            >
-                غير محددة
-            </div>
-
-            <div
-                class="status-description"
-                id="confidence"
-            >
-                —
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- SUMMARY -->
-
-<div class="card">
-
-    <div class="section">
-
-        <h2>
-            <span>●</span>
-            ماذا فهم واعي؟
-        </h2>
-
-        <div
-            class="content-box"
-            id="summary"
-        >
-            —
-        </div>
-
-    </div>
-
-
-    <div class="section">
-
-        <h2>
-            <span>⚠</span>
-            مؤشرات التهديد
-        </h2>
-
-        <div class="content-box">
-
-            <ul id="indicators"></ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="section">
-
-        <h2>
-            <span>🔎</span>
-            الأدلة والمعلومات
-        </h2>
-
-        <div class="content-box">
-
-            <ul id="evidence"></ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="section">
-
-        <h2>
-            <span>🚨</span>
-            ماذا أفعل الآن؟
-        </h2>
-
-        <div class="content-box">
-
-            <ul id="immediateActions"></ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="section">
-
-        <h2>
-            <span>🔐</span>
-            إجراءات المتابعة
-        </h2>
-
-        <div class="content-box">
-
-            <ul id="followUpActions"></ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="section">
-
-        <h2>
-            <span>💡</span>
-            رسالة واعي
-        </h2>
-
-        <div
-            class="awareness"
-            id="awarenessMessage"
-        >
-            —
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- CHAT -->
-
-<div class="card">
-
-    <div class="chat-container">
-
-        <div class="chat-title">
-
-            <strong>
-                واعي — مستشارك السايبر
-            </strong>
-
-            <br>
-
-            <small>
-                يمكنك إضافة معلومة أو سؤال عن نفس الحالة.
-            </small>
-
-        </div>
-
-
-        <div
-            class="chat-messages"
-            id="chatMessages"
-        >
-
-            <div class="message ai">
-
-                أنا واعي.
-                إذا تذكرتِ معلومة إضافية عن الحالة،
-                أو لاحظتِ شيئًا جديدًا، أخبريني وسأساعدك
-                في تقييم تأثيره على الحالة.
-
-            </div>
-
-        </div>
-
-
-        <div class="chat-input">
-
-            <input
-                type="text"
-                id="chatInput"
-                placeholder="مثال: نعم، لاحظت تسجيل دخول من جهاز لا أعرفه..."
-            >
-
-            <button
-                id="chatButton"
-            >
-                إرسال
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-```
+<div class="error" id="error"></div>
 
 </section>
 
-<footer>
-    WAEI | واعي — AI Cybersecurity Advisor
-</footer>
+
+<!-- =========================
+     RESULTS
+========================= -->
+
+<section class="results" id="results">
+
+<div class="results-title">
+
+<h2>
+نتيجة التقييم
+</h2>
+
+<p>
+WAEI Cybersecurity Assessment
+</p>
 
 </div>
+
+
+<!-- Overview -->
+
+<div class="overview">
+
+<div class="result-card">
+
+<div class="card-label">
+مستوى الخطر
+</div>
+
+<div
+class="risk-value"
+id="riskLevel"
+>
+—
+</div>
+
+</div>
+
+
+<div class="result-card">
+
+<div class="card-label">
+Risk Score
+</div>
+
+<div
+class="risk-score"
+id="riskScore"
+>
+—
+</div>
+
+</div>
+
+
+<div class="result-card">
+
+<div class="card-label">
+حالة الاختراق
+</div>
+
+<div
+class="compromise-value"
+id="compromiseStatus"
+>
+—
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Details -->
+
+<div class="detail-grid">
+
+
+<div class="result-card full">
+
+<h3>
+ملخص الحالة
+</h3>
+
+<div
+id="summary"
+class="awareness-message"
+>
+—
+</div>
+
+</div>
+
+
+<div class="result-card">
+
+<h3>
+مؤشرات الهجوم
+</h3>
+
+<div
+id="indicators"
+class="tags"
+>
+</div>
+
+</div>
+
+
+<div class="result-card">
+
+<h3>
+الأدلة والحقائق
+</h3>
+
+<ul id="facts">
+</ul>
+
+</div>
+
+
+<div class="result-card">
+
+<h3>
+الإجراءات الفورية
+</h3>
+
+<div id="immediateActions">
+</div>
+
+</div>
+
+
+<div class="result-card">
+
+<h3>
+إجراءات المتابعة
+</h3>
+
+<div id="followUpActions">
+</div>
+
+</div>
+
+
+<div class="result-card awareness full">
+
+<h3>
+رسالة واعي
+</h3>
+
+<div
+id="awareness"
+class="awareness-message"
+>
+—
+</div>
+
+</div>
+
+</div>
+
+
+<footer class="footer">
+
+WAEI | واعي
+<br>
+Cybersecurity Awareness & Intelligent Risk Guidance
+
+</footer>
+
+</section>
+
+</main>
+
 
 <script>
 
 /* =====================================================
-   CONFIGURATION
+   WAEI CONFIGURATION
 ===================================================== */
 
 const WEBHOOK_URL =
@@ -1196,39 +1176,54 @@ const WEBHOOK_URL =
 ===================================================== */
 
 let selectedExposure = "received_only";
-
-let currentCase = {
-    message: "",
-    channel: "sms",
-    user_exposure: "received_only",
-    has_screenshot: false
-};
-
-let lastAnalysis = null;
-
 let selectedImage = null;
 
 
 /* =====================================================
-   EXPOSURE
+   ELEMENTS
 ===================================================== */
 
-document
-.querySelectorAll(".exposure")
-.forEach(card => {
+const messageInput =
+document.getElementById("message");
+
+const analyzeBtn =
+document.getElementById("analyzeBtn");
+
+const loading =
+document.getElementById("loading");
+
+const errorBox =
+document.getElementById("error");
+
+const results =
+document.getElementById("results");
+
+const fileInput =
+document.getElementById("fileInput");
+
+const preview =
+document.getElementById("preview");
+
+const previewImage =
+document.getElementById("previewImage");
+
+
+/* =====================================================
+   EXPOSURE SELECTION
+===================================================== */
+
+document.querySelectorAll(".exposure").forEach(card => {
 
     card.addEventListener("click", () => {
 
         document
         .querySelectorAll(".exposure")
-        .forEach(item => {
-            item.classList.remove("selected");
-        });
+        .forEach(x => x.classList.remove("active"));
 
-        card.classList.add("selected");
+        card.classList.add("active");
 
         selectedExposure =
-            card.dataset.value;
+        card.dataset.value;
 
     });
 
@@ -1236,382 +1231,255 @@ document
 
 
 /* =====================================================
-   IMAGE UPLOAD
+   IMAGE PREVIEW
 ===================================================== */
 
-const screenshotInput =
-    document.getElementById(
-        "screenshotInput"
-    );
+fileInput.addEventListener("change", event => {
 
-const imagePreview =
-    document.getElementById(
-        "imagePreview"
-    );
+    const file =
+    event.target.files[0];
 
-const previewImage =
-    document.getElementById(
-        "previewImage"
-    );
+    if (!file) return;
 
-const removeImage =
-    document.getElementById(
-        "removeImage"
-    );
+    selectedImage = file;
 
+    const reader =
+    new FileReader();
 
-screenshotInput.addEventListener(
-    "change",
-    event => {
+    reader.onload = e => {
 
-        const file =
-            event.target.files[0];
+        previewImage.src =
+        e.target.result;
 
-        if (!file) return;
-
-
-        if (
-            !file.type.startsWith("image/")
-        ) {
-
-            alert(
-                "فضلاً اختاري صورة فقط."
-            );
-
-            screenshotInput.value = "";
-
-            return;
-
-        }
-
-
-        selectedImage = file;
-
-
-        const reader =
-            new FileReader();
-
-
-        reader.onload = function(e) {
-
-            previewImage.src =
-                e.target.result;
-
-            imagePreview.style.display =
-                "block";
-
-        };
-
-
-        reader.readAsDataURL(file);
-
-    }
-);
-
-
-removeImage.addEventListener(
-    "click",
-    () => {
-
-        selectedImage = null;
-
-        screenshotInput.value = "";
-
-        previewImage.src = "";
-
-        imagePreview.style.display =
-            "none";
-
-    }
-);
-
-
-/* =====================================================
-   ANALYZE
-===================================================== */
-
-document
-.getElementById("analyzeButton")
-.addEventListener(
-    "click",
-    analyzeCase
-);
-
-
-async function analyzeCase() {
-
-    const message =
-        document
-        .getElementById("message")
-        .value
-        .trim();
-
-    const button =
-        document
-        .getElementById("analyzeButton");
-
-    const loading =
-        document
-        .getElementById("loading");
-
-    const error =
-        document
-        .getElementById("error");
-
-
-    error.style.display =
-        "none";
-
-
-    if (!message && !selectedImage) {
-
-        error.textContent =
-            "اكتبي ما حدث أو أضيفي لقطة شاشة حتى يتمكن واعي من تحليل الحالة.";
-
-        error.style.display =
-            "block";
-
-        return;
-
-    }
-
-
-    currentCase = {
-
-        message:
-            message,
-
-        channel:
-            detectChannel(message),
-
-        user_exposure:
-            selectedExposure,
-
-        has_screenshot:
-            Boolean(selectedImage)
+        preview.style.display =
+        "block";
 
     };
 
+    reader.readAsDataURL(file);
 
-    button.disabled = true;
-
-    loading.style.display =
-        "block";
+});
 
 
-    try {
+/* =====================================================
+   CHANNEL DETECTION
+===================================================== */
 
-        console.log(
-            "WAEI REQUEST:",
-            currentCase
-        );
+function detectChannel(text) {
 
+    const value =
+    text.toLowerCase();
 
-        /*
-         * ملاحظة:
-         *
-         * في هذه المرحلة نرسل بيانات
-         * الحالة النصية إلى الـWebhook.
-         *
-         * الصورة يتم تجهيزها في الواجهة
-         * لكن تحليل الصورة فعليًا سيتم
-         * بعد إضافة Vision/Image Agent
-         * في n8n.
-         */
-
-
-        const response =
-            await fetch(
-                WEBHOOK_URL,
-                {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body:
-                        JSON.stringify(
-                            currentCase
-                        )
-
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "HTTP " +
-                response.status
-            );
-
-        }
-
-
-        const rawResponse =
-            await response.text();
-
-
-        console.log(
-            "WAEI RAW RESPONSE:",
-            rawResponse
-        );
-
-
-        if (
-            !rawResponse.trim()
-        ) {
-
-            throw new Error(
-                "EMPTY_RESPONSE"
-            );
-
-        }
-
-
-        const data =
-            parseN8nResponse(
-                rawResponse
-            );
-
-
-        console.log(
-            "WAEI PARSED RESPONSE:",
-            data
-        );
-
-
-        if (
-            !data ||
-            typeof data !== "object"
-        ) {
-
-            throw new Error(
-                "INVALID_RESPONSE"
-            );
-
-        }
-
-
-        lastAnalysis =
-            data;
-
-
-        displayResult(
-            data
-        );
-
-
-        goToPage2();
-
-
-    } catch (err) {
-
-        console.error(
-            "WAEI ERROR:",
-            err
-        );
-
-
-        error.textContent =
-            getFriendlyError(
-                err
-            );
-
-        error.style.display =
-            "block";
-
-
-    } finally {
-
-        button.disabled =
-            false;
-
-        loading.style.display =
-            "none";
-
+    if (
+        value.includes("sms") ||
+        value.includes("رسالة نصية")
+    ) {
+        return "sms";
     }
+
+    if (
+        value.includes("whatsapp") ||
+        value.includes("واتساب")
+    ) {
+        return "whatsapp";
+    }
+
+    if (
+        value.includes("email") ||
+        value.includes("إيميل") ||
+        value.includes("بريد")
+    ) {
+        return "email";
+    }
+
+    if (
+        value.includes("telegram") ||
+        value.includes("تلجرام")
+    ) {
+        return "telegram";
+    }
+
+    if (
+        value.includes("instagram") ||
+        value.includes("انستقرام")
+    ) {
+        return "social_media";
+    }
+
+    return "unknown";
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message) {
+
+    errorBox.textContent =
+    message;
+
+    errorBox.style.display =
+    "block";
 
 }
 
 
 /* =====================================================
-   N8N RESPONSE PARSER
+   FORMAT
 ===================================================== */
 
-function parseN8nResponse(raw) {
+function translateRisk(level) {
 
-    let data;
+    const map = {
+
+        low: "منخفض",
+        medium: "متوسط",
+        high: "مرتفع",
+        critical: "حرج"
+
+    };
+
+    return map[level] || level || "غير محدد";
+}
 
 
-    try {
+function translateCompromise(status) {
 
-        data =
-            JSON.parse(raw);
+    const map = {
 
-    } catch {
+        no_evidence:
+        "لا توجد أدلة على اختراق",
 
-        return {
-            awareness_message:
-                raw
-        };
+        suspicious_activity:
+        "نشاط مشبوه",
 
+        possible_compromise:
+        "احتمالية اختراق",
+
+        strongly_supported_compromise:
+        "مؤشرات قوية على الاختراق",
+
+        confirmed_compromise:
+        "اختراق مؤكد"
+
+    };
+
+    return map[status] || status || "غير محدد";
+}
+
+
+/* =====================================================
+   ARRAY RENDER
+===================================================== */
+
+function renderList(element, items) {
+
+    element.innerHTML = "";
+
+    if (!Array.isArray(items) || items.length === 0) {
+
+        const li =
+        document.createElement("li");
+
+        li.textContent =
+        "لا توجد معلومات إضافية.";
+
+        element.appendChild(li);
+
+        return;
     }
 
+    items.forEach(item => {
 
-    /*
-     * Case 1:
-     * { output: "JSON string" }
-     */
+        const li =
+        document.createElement("li");
 
-    if (
-        typeof data.output ===
-        "string"
-    ) {
+        li.textContent =
+        typeof item === "string"
+        ? item
+        : JSON.stringify(item);
+
+        element.appendChild(li);
+
+    });
+
+}
+
+
+function renderActions(element, items) {
+
+    element.innerHTML = "";
+
+    if (!Array.isArray(items) || items.length === 0) {
+
+        element.innerHTML =
+        `<div class="action-item">
+        لا توجد إجراءات إضافية.
+        </div>`;
+
+        return;
+    }
+
+    items.forEach(item => {
+
+        const div =
+        document.createElement("div");
+
+        div.className =
+        "action-item";
+
+        div.textContent =
+        typeof item === "string"
+        ? item
+        : JSON.stringify(item);
+
+        element.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================================
+   RESPONSE NORMALIZATION
+===================================================== */
+
+function normalizeResponse(data) {
+
+    if (!data) return {};
+
+    if (typeof data === "string") {
 
         try {
-
-            const parsedOutput =
-                JSON.parse(
-                    data.output
-                );
-
-            return parsedOutput;
-
-        } catch {
-
+            return JSON.parse(data);
+        }
+        catch {
             return {
-                awareness_message:
-                    data.output
+                summary: data
             };
-
         }
 
     }
 
+    if (data.output) {
 
-    /*
-     * Case 2:
-     * { json: {...} }
-     */
+        try {
 
-    if (
-        data.json &&
-        typeof data.json === "object"
-    ) {
+            return JSON.parse(
+                data.output
+            );
+
+        }
+        catch {}
+
+    }
+
+    if (data.json) {
 
         return data.json;
 
     }
-
-
-    /*
-     * Case 3:
-     * Final JSON directly
-     */
 
     return data;
 
@@ -1622,900 +1490,284 @@ function parseN8nResponse(raw) {
    DISPLAY RESULT
 ===================================================== */
 
-function displayResult(data) {
+function displayResult(rawData) {
 
-    /*
-     * FINAL DECISION
-     */
-
-    const finalDecision =
-        data.final_decision ||
-        data.finalDecision ||
-        {};
+    const data =
+    normalizeResponse(rawData);
 
 
-    const riskLevel =
-        finalDecision.risk_level ||
-        data.risk_level ||
-        data.risk_engine
-            ?.final_risk_level ||
-        "unknown";
+    const risk =
+    data.risk_engine ||
+    data.risk_calculation ||
+    {};
 
 
-    const riskScore =
-        finalDecision.risk_score ??
-        data.risk_score ??
-        data.risk_engine
-            ?.risk_score ??
-        "—";
+    const evidence =
+    data.evidence_assessment ||
+    {};
 
 
-    const decision =
-        finalDecision.decision ||
-        data.decision ||
-        "unknown";
+    const threat =
+    data.threat_analysis ||
+    {};
 
 
-    document
-    .getElementById("riskLevel")
-    .textContent =
-        translateRiskLevel(
-            riskLevel
-        );
+    const protection =
+    data.protection_guidance ||
+    {};
 
-
-    document
-    .getElementById("riskScore")
-    .textContent =
-        riskScore;
-
-
-    document
-    .getElementById("decision")
-    .textContent =
-        translateDecision(
-            decision
-        );
-
-
-    /*
-     * COMPROMISE ASSESSMENT
-     */
 
     const compromise =
-        data.compromise_assessment ||
-        {};
+    data.compromise_assessment ||
+    {};
 
 
-    const compromiseStatus =
-        compromise.status ||
-        data.compromise_status ||
-        "unknown";
+    /* Risk */
+
+    document.getElementById("riskLevel")
+    .textContent =
+    translateRisk(
+        risk.final_risk_level ||
+        risk.risk_level ||
+        data.final_risk_level
+    );
 
 
-    const compromiseReason =
-        Array.isArray(
-            compromise.reasoning
-        )
-        ? compromise.reasoning.join(" ")
-        : compromise.reasoning ||
-          "لا توجد معلومات كافية لتحديد الحالة.";
+    document.getElementById("riskScore")
+    .textContent =
+    risk.risk_score ??
+    data.risk_score ??
+    "—";
 
 
-    document
-    .getElementById(
+    /* Compromise */
+
+    document.getElementById(
         "compromiseStatus"
-    )
-    .textContent =
-        translateCompromiseStatus(
-            compromiseStatus
-        );
+    ).textContent =
+    translateCompromise(
+        compromise.status ||
+        compromise.compromise_status ||
+        data.compromise_status
+    );
 
 
-    document
-    .getElementById(
-        "compromiseReason"
-    )
-    .textContent =
-        compromiseReason;
+    /* Summary */
+
+    document.getElementById(
+        "summary"
+    ).textContent =
+
+    data.summary ||
+    evidence.summary ||
+    "تم تحليل الحالة بناءً على المعلومات المتاحة.";
 
 
-    /*
-     * EVIDENCE
-     */
-
-    const evidenceAssessment =
-        data.evidence_assessment ||
-        {};
-
-
-    const evidenceStrength =
-        evidenceAssessment.evidence_strength ||
-        data.evidence_strength ||
-        "unknown";
-
-
-    document
-    .getElementById(
-        "evidenceStrength"
-    )
-    .textContent =
-        translateEvidenceStrength(
-            evidenceStrength
-        );
-
-
-    const confidence =
-        data.risk_engine
-            ?.assessment_confidence ??
-        data.assessment_confidence;
-
-
-    document
-    .getElementById(
-        "confidence"
-    )
-    .textContent =
-        confidence !== undefined
-        ? "ثقة التقييم: " +
-          Math.round(
-              Number(confidence) * 100
-          ) +
-          "%"
-        : "لم يتم تحديد مستوى الثقة.";
-
-
-    /*
-     * SUMMARY
-     */
-
-    document
-    .getElementById("summary")
-    .textContent =
-        finalDecision.summary ||
-        data.summary ||
-        data.protection_guidance
-            ?.awareness_message ||
-        "تم تحليل الحالة.";
-
-
-    /*
-     * INDICATORS
-     */
+    /* Indicators */
 
     const indicators =
-        data.threat_analysis
-            ?.observed_indicators ||
-        data.observed_indicators ||
-        data.attack_indicators ||
-        [];
+    threat.observed_indicators ||
+    threat.attack_indicators ||
+    data.attack_indicators ||
+    [];
+
+    const indicatorsBox =
+    document.getElementById("indicators");
+
+    indicatorsBox.innerHTML = "";
+
+    indicators.forEach(item => {
+
+        const tag =
+        document.createElement("span");
+
+        tag.className =
+        "tag";
+
+        tag.textContent =
+        item;
+
+        indicatorsBox.appendChild(tag);
+
+    });
 
 
-    addListItems(
-        document
-        .getElementById(
-            "indicators"
-        ),
-        indicators
-    );
+    /* Facts */
 
+    renderList(
 
-    /*
-     * EVIDENCE LIST
-     */
+        document.getElementById("facts"),
 
-    const confirmedFacts =
-        evidenceAssessment
-            .confirmed_facts ||
+        evidence.confirmed_facts ||
         data.confirmed_facts ||
-        [];
+        []
 
-
-    const assumptions =
-        evidenceAssessment
-            .assumptions ||
-        data.assumptions ||
-        [];
-
-
-    const unknowns =
-        evidenceAssessment
-            .unknowns ||
-        data.unknowns ||
-        [];
-
-
-    const evidenceItems = [];
-
-
-    confirmedFacts.forEach(
-        item => {
-
-            evidenceItems.push(
-                "مؤكد: " +
-                item
-            );
-
-        }
     );
 
 
-    assumptions.forEach(
-        item => {
+    /* Actions */
 
-            evidenceItems.push(
-                "افتراض: " +
-                item
-            );
+    renderActions(
 
-        }
-    );
-
-
-    unknowns.forEach(
-        item => {
-
-            evidenceItems.push(
-                "غير معروف: " +
-                item
-            );
-
-        }
-    );
-
-
-    addListItems(
-        document
-        .getElementById(
-            "evidence"
-        ),
-        evidenceItems
-    );
-
-
-    /*
-     * IMMEDIATE ACTIONS
-     */
-
-    const immediateActions =
-        data.protection_guidance
-            ?.immediate_actions ||
-        data.immediate_actions ||
-        [];
-
-
-    addListItems(
-        document
-        .getElementById(
+        document.getElementById(
             "immediateActions"
         ),
-        immediateActions
+
+        protection.immediate_actions ||
+        data.immediate_actions ||
+        []
+
     );
 
 
-    /*
-     * FOLLOW UP
-     */
+    renderActions(
 
-    const followUpActions =
-        data.protection_guidance
-            ?.follow_up_actions ||
-        data.follow_up_actions ||
-        [];
-
-
-    addListItems(
-        document
-        .getElementById(
+        document.getElementById(
             "followUpActions"
         ),
-        followUpActions
+
+        protection.follow_up_actions ||
+        data.follow_up_actions ||
+        []
+
     );
 
 
-    /*
-     * AWARENESS
-     */
+    /* Awareness */
 
-    const awareness =
-        data.protection_guidance
-            ?.awareness_message ||
-        data.awareness_message ||
-        "تم تحليل الحالة.";
+    document.getElementById(
+        "awareness"
+    ).textContent =
+
+    protection.awareness_message ||
+    data.awareness_message ||
+    "كن واعياً، ولا تتخذ أي إجراء قبل التحقق من الجهة الرسمية.";
 
 
-    document
-    .getElementById(
-        "awarenessMessage"
-    )
-    .textContent =
-        Array.isArray(awareness)
-        ? awareness.join(" ")
-        : awareness;
+    results.style.display =
+    "block";
+
+    results.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
 }
 
 
 /* =====================================================
-   LIST
+   ANALYZE
 ===================================================== */
 
-function addListItems(
-    element,
-    items
-) {
+analyzeBtn.addEventListener(
+"click",
+async () => {
 
-    element.innerHTML = "";
+    const message =
+    messageInput.value.trim();
 
+    errorBox.style.display =
+    "none";
 
-    if (
-        !Array.isArray(items) ||
-        items.length === 0
-    ) {
+    if (!message) {
 
-        const li =
-            document.createElement(
-                "li"
-            );
-
-        li.textContent =
-            "لا توجد معلومات إضافية.";
-
-        element.appendChild(
-            li
+        showError(
+            "اكتبي تفاصيل الحالة أولاً."
         );
+
+        messageInput.focus();
 
         return;
 
     }
 
 
-    items.forEach(item => {
+    analyzeBtn.disabled =
+    true;
 
-        const li =
-            document.createElement(
-                "li"
-            );
-
-
-        li.textContent =
-            typeof item === "string"
-            ? translateIndicator(item)
-            : JSON.stringify(item);
+    loading.style.display =
+    "block";
 
 
-        element.appendChild(
-            li
-        );
+    const payload = {
 
-    });
+        message,
 
-}
+        channel:
+        detectChannel(message),
 
+        user_exposure:
+        selectedExposure,
 
-/* =====================================================
-   CHANNEL DETECTION
-===================================================== */
-
-function detectChannel(message) {
-
-    const text =
-        String(message)
-        .toLowerCase();
-
-
-    if (
-        text.includes("واتساب") ||
-        text.includes("whatsapp")
-    ) {
-
-        return "whatsapp";
-
-    }
-
-
-    if (
-        text.includes("تلجرام") ||
-        text.includes("telegram")
-    ) {
-
-        return "telegram";
-
-    }
-
-
-    if (
-        text.includes("إيميل") ||
-        text.includes("بريد إلكتروني") ||
-        text.includes("email")
-    ) {
-
-        return "email";
-
-    }
-
-
-    if (
-        text.includes("مكالمة") ||
-        text.includes("اتصال") ||
-        text.includes("اتصل")
-    ) {
-
-        return "voice";
-
-    }
-
-
-    return "sms";
-
-}
-
-
-/* =====================================================
-   TRANSLATIONS
-===================================================== */
-
-function translateRiskLevel(level) {
-
-    const values = {
-
-        low: "منخفض",
-
-        medium: "متوسط",
-
-        high: "مرتفع",
-
-        critical: "حرج",
-
-        unknown: "غير محدد"
+        has_screenshot:
+        Boolean(selectedImage)
 
     };
 
 
-    return (
-        values[
-            String(level)
-            .toLowerCase()
-        ]
-        || level
-    );
-
-}
-
-
-function translateDecision(decision) {
-
-    const values = {
-
-        safe: "آمن",
-
-        monitor: "يتطلب مراقبة",
-
-        protect: "يتطلب حماية",
-
-        escalate: "يتطلب تصعيد",
-
-        unknown: "غير محدد"
-
-    };
-
-
-    return (
-        values[
-            String(decision)
-            .toLowerCase()
-        ]
-        || decision
-    );
-
-}
-
-
-function translateCompromiseStatus(status) {
-
-    const values = {
-
-        no_evidence:
-            "لا توجد أدلة على اختراق",
-
-        suspicious_activity:
-            "نشاط مشبوه",
-
-        possible_compromise:
-            "احتمال اختراق",
-
-        strongly_supported_compromise:
-            "أدلة قوية على اختراق",
-
-        confirmed_compromise:
-            "اختراق مؤكد",
-
-        unknown:
-            "غير محدد"
-
-    };
-
-
-    return (
-        values[
-            String(status)
-            .toLowerCase()
-        ]
-        || status
-    );
-
-}
-
-
-function translateEvidenceStrength(strength) {
-
-    const values = {
-
-        weak:
-            "ضعيفة",
-
-        moderate:
-            "متوسطة",
-
-        strong:
-            "قوية",
-
-        confirmed:
-            "مؤكدة",
-
-        unknown:
-            "غير محددة"
-
-    };
-
-
-    return (
-        values[
-            String(strength)
-            .toLowerCase()
-        ]
-        || strength
-    );
-
-}
-
-
-function translateIndicator(indicator) {
-
-    const values = {
-
-        impersonation:
-            "انتحال هوية",
-
-        urgency:
-            "استعجال وضغط زمني",
-
-        fear:
-            "استخدام التخويف",
-
-        authority:
-            "استغلال صفة رسمية أو جهة موثوقة",
-
-        financial_pressure:
-            "ضغط مالي",
-
-        emotional_pressure:
-            "ضغط عاطفي",
-
-        otp_request:
-            "طلب رمز OTP",
-
-        credential_request:
-            "طلب بيانات الدخول",
-
-        password_request:
-            "طلب كلمة المرور",
-
-        personal_data_request:
-            "طلب بيانات شخصية",
-
-        identity_document_request:
-            "طلب وثيقة هوية",
-
-        payment_request:
-            "طلب دفع",
-
-        money_transfer_request:
-            "طلب تحويل أموال",
-
-        suspicious_link:
-            "رابط مشبوه",
-
-        unknown_link:
-            "رابط غير معروف",
-
-        shortened_url:
-            "رابط مختصر",
-
-        malicious_attachment:
-            "مرفق ضار أو مشبوه",
-
-        qr_code_request:
-            "طلب استخدام رمز QR",
-
-        application_installation:
-            "طلب تثبيت تطبيق",
-
-        account_suspension_threat:
-            "تهديد بإيقاف الحساب",
-
-        secrecy_request:
-            "طلب السرية",
-
-        reward_promise:
-            "وعد بمكافأة",
-
-        guaranteed_profit:
-            "أرباح مضمونة",
-
-        unusually_high_return:
-            "عائد مرتفع بشكل غير معتاد",
-
-        too_good_to_be_true:
-            "عرض يبدو أفضل من المعتاد",
-
-        unusual_channel:
-            "استخدام قناة غير معتادة",
-
-        inconsistent_information:
-            "معلومات غير متسقة",
-
-        unknown_sender:
-            "مرسل غير معروف",
-
-        pressure_to_act:
-            "ضغط لاتخاذ إجراء سريع",
-
-        request_to_bypass_normal_process:
-            "طلب تجاوز الإجراءات المعتادة"
-
-    };
-
-
-    return (
-        values[indicator] ||
-        indicator
-    );
-
-}
-
-
-/* =====================================================
-   PAGE NAVIGATION
-===================================================== */
-
-function goToPage2() {
-
-    document
-    .getElementById("page1")
-    .classList.remove("active");
-
-
-    document
-    .getElementById("page2")
-    .classList.add("active");
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-function goToPage1() {
-
-    document
-    .getElementById("page2")
-    .classList.remove("active");
-
-
-    document
-    .getElementById("page1")
-    .classList.add("active");
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =====================================================
-   CHAT
-===================================================== */
-
-document
-.getElementById("chatButton")
-.addEventListener(
-    "click",
-    sendChat
-);
-
-
-document
-.getElementById("chatInput")
-.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Enter"
-        ) {
-
-            sendChat();
-
-        }
-
-    }
-);
-
-
-async function sendChat() {
-
-    const input =
-        document.getElementById(
-            "chatInput"
+    try {
+
+        const response =
+        await fetch(
+            WEBHOOK_URL,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+
+                body:
+                JSON.stringify(payload)
+            }
         );
 
 
-    const text =
-        input.value.trim();
+        if (!response.ok) {
 
-
-    if (!text) return;
-
-
-    addChatMessage(
-        text,
-        "user"
-    );
-
-
-    input.value = "";
-
-
-    addChatMessage(
-        "سأتعامل مع هذه المعلومة ضمن الحالة الحالية...",
-        "ai"
-    );
-
-
-    /*
-     * لا نرسل Chat إلى Webhook
-     * تحليل الحالة الحالي.
-     *
-     * سيتم لاحقًا إنشاء Chat Webhook
-     * مستقل يحافظ على سياق الحالة.
-     */
-
-
-    setTimeout(() => {
-
-        const messages =
-            document.getElementById(
-                "chatMessages"
-            );
-
-
-        if (
-            messages.lastElementChild
-        ) {
-
-            messages.removeChild(
-                messages.lastElementChild
+            throw new Error(
+                "Webhook returned HTTP " +
+                response.status
             );
 
         }
 
 
-        addChatMessage(
-
-            "سيتم ربط هذه المحادثة مع Chat Agent في المرحلة التالية، بحيث يستطيع واعي الاحتفاظ بسياق الحالة وطرح أسئلة متابعة بناءً على إجاباتك.",
-
-            "ai"
-
-        );
-
-    }, 700);
-
-}
+        const data =
+        await response.json();
 
 
-/* =====================================================
-   CHAT MESSAGE
-===================================================== */
-
-function addChatMessage(
-    text,
-    type
-) {
-
-    const container =
-        document.getElementById(
-            "chatMessages"
-        );
-
-
-    const message =
-        document.createElement(
-            "div"
-        );
-
-
-    message.className =
-        "message " +
-        type;
-
-
-    message.textContent =
-        text;
-
-
-    container.appendChild(
-        message
-    );
-
-
-    container.scrollTop =
-        container.scrollHeight;
-
-}
-
-
-/* =====================================================
-   FRIENDLY ERRORS
-===================================================== */
-
-function getFriendlyError(error) {
-
-    if (
-        error.message ===
-        "EMPTY_RESPONSE"
-    ) {
-
-        return "تم الاتصال بـ WAEI، لكن لم تصل نتيجة من الـWorkflow. تحققي من آخر Node في n8n ومن إعدادات Respond.";
+        displayResult(data);
 
     }
 
 
-    if (
-        error.message ===
-        "INVALID_RESPONSE"
-    ) {
+    catch (error) {
 
-        return "وصل رد من WAEI لكن بصيغة غير متوقعة. افتحي Output في آخر Node وأرسليه لي لنطابق الواجهة معه.";
+        console.error(error);
 
-    }
-
-
-    if (
-        error.message &&
-        error.message.startsWith(
-            "HTTP"
-        )
-    ) {
-
-        return "وصل الطلب إلى WAEI لكن الـWorkflow أعاد خطأ " +
-               error.message +
-               ". تحققي من تنفيذ الـWorkflow في n8n.";
+        showError(
+            "تعذر الاتصال بـ WAEI. تأكدي أن الـ Workflow مفعّل وأن رابط الـ Webhook صحيح."
+        );
 
     }
 
 
-    return "تعذر الاتصال بـ WAEI. تأكدي أن الـWorkflow مفعّل وأن Production Webhook يعمل، ثم حاولي مرة أخرى.";
+    finally {
 
-}
+        analyzeBtn.disabled =
+        false;
+
+        loading.style.display =
+        "none";
+
+    }
+
+});
 
 </script>
 
 </body>
 </html>
+```
