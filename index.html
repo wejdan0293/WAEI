@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -735,10 +736,6 @@ textarea:focus {
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="header">
 
 <div class="header-inner">
@@ -747,7 +744,6 @@ textarea:focus {
 
 <div class="logo">
 
-<!-- Custom WAEI Logo -->
 <svg viewBox="0 0 100 100" fill="none"
 xmlns="http://www.w3.org/2000/svg">
 
@@ -798,11 +794,6 @@ WAEI Security Advisor
 
 </header>
 
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="container">
 
 <section class="hero">
@@ -823,11 +814,6 @@ Cybersecurity Intelligence
 
 </section>
 
-
-<!-- =========================
-     ADVISOR
-========================= -->
-
 <section class="advisor">
 
 <div class="section-label">
@@ -840,9 +826,6 @@ placeholder="مثال:
 وصلتني رسالة SMS تقول إن حسابي البنكي سيتوقف.
 ضغطت على الرابط وأدخلت اسم المستخدم وكلمة المرور..."
 ></textarea>
-
-
-<!-- Exposure -->
 
 <div class="exposure-section">
 
@@ -865,7 +848,6 @@ data-value="received_only">
 
 </div>
 
-
 <div class="exposure"
 data-value="clicked_link">
 
@@ -879,7 +861,6 @@ data-value="clicked_link">
 
 </div>
 
-
 <div class="exposure"
 data-value="entered_credentials">
 
@@ -892,7 +873,6 @@ data-value="entered_credentials">
 </div>
 
 </div>
-
 
 <div class="exposure"
 data-value="shared_otp">
@@ -910,9 +890,6 @@ data-value="shared_otp">
 </div>
 
 </div>
-
-
-<!-- Screenshot -->
 
 <div class="upload">
 
@@ -950,11 +927,9 @@ accept="image/*"
 
 </div>
 
-
 <div class="preview" id="preview">
 <img id="previewImage">
 </div>
-
 
 <div class="action">
 
@@ -969,7 +944,6 @@ id="analyzeBtn"
 
 </div>
 
-
 <div class="loading" id="loading">
 
 <div class="spinner"></div>
@@ -978,15 +952,9 @@ id="analyzeBtn"
 
 </div>
 
-
 <div class="error" id="error"></div>
 
 </section>
-
-
-<!-- =========================
-     RESULTS
-========================= -->
 
 <section class="results" id="results">
 
@@ -1001,9 +969,6 @@ WAEI Cybersecurity Assessment
 </p>
 
 </div>
-
-
-<!-- Overview -->
 
 <div class="overview">
 
@@ -1022,7 +987,6 @@ id="riskLevel"
 
 </div>
 
-
 <div class="result-card">
 
 <div class="card-label">
@@ -1037,7 +1001,6 @@ id="riskScore"
 </div>
 
 </div>
-
 
 <div class="result-card">
 
@@ -1056,11 +1019,7 @@ id="compromiseStatus"
 
 </div>
 
-
-<!-- Details -->
-
 <div class="detail-grid">
-
 
 <div class="result-card full">
 
@@ -1077,7 +1036,6 @@ class="awareness-message"
 
 </div>
 
-
 <div class="result-card">
 
 <h3>
@@ -1092,7 +1050,6 @@ class="tags"
 
 </div>
 
-
 <div class="result-card">
 
 <h3>
@@ -1103,7 +1060,6 @@ class="tags"
 </ul>
 
 </div>
-
 
 <div class="result-card">
 
@@ -1116,7 +1072,6 @@ class="tags"
 
 </div>
 
-
 <div class="result-card">
 
 <h3>
@@ -1127,7 +1082,6 @@ class="tags"
 </div>
 
 </div>
-
 
 <div class="result-card awareness full">
 
@@ -1146,7 +1100,6 @@ class="awareness-message"
 
 </div>
 
-
 <footer class="footer">
 
 WAEI | واعي
@@ -1158,7 +1111,6 @@ Cybersecurity Awareness & Intelligent Risk Guidance
 </section>
 
 </main>
-
 
 <script>
 
@@ -1521,8 +1473,6 @@ function displayResult(rawData) {
     {};
 
 
-    /* Risk */
-
     document.getElementById("riskLevel")
     .textContent =
     translateRisk(
@@ -1539,8 +1489,6 @@ function displayResult(rawData) {
     "—";
 
 
-    /* Compromise */
-
     document.getElementById(
         "compromiseStatus"
     ).textContent =
@@ -1551,8 +1499,6 @@ function displayResult(rawData) {
     );
 
 
-    /* Summary */
-
     document.getElementById(
         "summary"
     ).textContent =
@@ -1561,8 +1507,6 @@ function displayResult(rawData) {
     evidence.summary ||
     "تم تحليل الحالة بناءً على المعلومات المتاحة.";
 
-
-    /* Indicators */
 
     const indicators =
     threat.observed_indicators ||
@@ -1591,8 +1535,6 @@ function displayResult(rawData) {
     });
 
 
-    /* Facts */
-
     renderList(
 
         document.getElementById("facts"),
@@ -1603,8 +1545,6 @@ function displayResult(rawData) {
 
     );
 
-
-    /* Actions */
 
     renderActions(
 
@@ -1631,8 +1571,6 @@ function displayResult(rawData) {
 
     );
 
-
-    /* Awareness */
 
     document.getElementById(
         "awareness"
@@ -1714,7 +1652,7 @@ async () => {
 
                 headers: {
                     "Content-Type":
-                    "application/json"
+                    "application/json; charset=UTF-8"
                 },
 
                 body:
@@ -1769,3 +1707,4 @@ async () => {
 
 </body>
 </html>
+```
