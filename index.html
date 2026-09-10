@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -8,632 +7,1312 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WAEI | واعي — Cyber Advisor</title>
+<title>WAEI | واعي</title>
 
 <style>
+
+/* =====================================================
+   WAEI | واعي
+   Frontend
+===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
 :root {
+
     --bg: #07111f;
     --bg-soft: #0b1728;
     --card: rgba(14, 29, 48, 0.78);
-    --border: rgba(148, 163, 184, 0.14);
-    --border-hover: rgba(56, 189, 248, 0.35);
+
+    --border:
+        rgba(148, 163, 184, 0.14);
+
+    --border-hover:
+        rgba(56, 189, 248, 0.35);
+
     --text: #edf6ff;
     --muted: #8da2b8;
+
     --primary: #22d3ee;
-    --primary-soft: rgba(34, 211, 238, 0.10);
+
+    --primary-soft:
+        rgba(34, 211, 238, 0.10);
+
     --success: #34d399;
+
+    --danger: #fb7185;
+
     --radius: 20px;
+
 }
+
 
 * {
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
+
     margin: 0;
+
     min-height: 100vh;
-    font-family: "IBM Plex Sans Arabic", Arial, sans-serif;
+
+    font-family:
+        "IBM Plex Sans Arabic",
+        Arial,
+        sans-serif;
+
     background:
-        radial-gradient(circle at 85% 10%, rgba(34,211,238,.07), transparent 28%),
-        radial-gradient(circle at 10% 90%, rgba(59,130,246,.05), transparent 30%),
+
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(34,211,238,.07),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(59,130,246,.05),
+            transparent 30%
+        ),
+
         var(--bg);
+
     color: var(--text);
+
 }
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header {
+
     height: 76px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(7,17,31,.82);
-    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(7,17,31,.82);
+
+    backdrop-filter:
+        blur(18px);
+
     position: sticky;
+
     top: 0;
+
     z-index: 100;
+
 }
+
 
 .header-inner {
+
     max-width: 1180px;
+
     height: 100%;
+
     margin: auto;
+
     padding: 0 24px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
 }
+
 
 .brand {
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
+
 }
+
 
 .logo {
+
     width: 43px;
+
     height: 43px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
 }
+
 
 .logo svg {
+
     width: 43px;
+
     height: 43px;
+
 }
+
 
 .brand-text {
+
     display: flex;
+
     flex-direction: column;
+
     line-height: 1.1;
+
 }
+
 
 .brand-en {
+
     font-size: 17px;
+
     font-weight: 700;
+
     letter-spacing: .12em;
+
 }
+
 
 .brand-ar {
+
     color: var(--muted);
+
     font-size: 11px;
+
     margin-top: 4px;
+
 }
+
 
 .header-status {
+
     display: flex;
+
     align-items: center;
+
     gap: 8px;
+
     font-size: 12px;
+
     color: var(--muted);
+
 }
+
 
 .status-dot {
+
     width: 7px;
+
     height: 7px;
+
     border-radius: 50%;
+
     background: var(--success);
-    box-shadow: 0 0 12px rgba(52,211,153,.7);
+
+    box-shadow:
+        0 0 12px
+        rgba(52,211,153,.7);
+
 }
+
+
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container {
+
     max-width: 1180px;
+
     margin: auto;
-    padding: 60px 24px 90px;
+
+    padding:
+        60px 24px 90px;
+
 }
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero {
+
     max-width: 820px;
-    margin: 0 auto 46px;
+
+    margin:
+        0 auto 46px;
+
     text-align: center;
+
 }
+
 
 .hero-badge {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
-    padding: 7px 13px;
-    border: 1px solid rgba(34,211,238,.18);
-    background: rgba(34,211,238,.06);
+
+    padding:
+        7px 13px;
+
+    border:
+        1px solid
+        rgba(34,211,238,.18);
+
+    background:
+        rgba(34,211,238,.06);
+
     border-radius: 999px;
+
     color: #8eeaf5;
+
     font-size: 12px;
+
     margin-bottom: 20px;
+
 }
+
 
 .hero h1 {
+
     margin: 0;
-    font-size: clamp(34px, 5vw, 58px);
+
+    font-size:
+        clamp(34px, 5vw, 58px);
+
     line-height: 1.12;
+
     letter-spacing: -1px;
+
 }
+
 
 .hero h1 span {
-    color: var(--primary);
+
+    color:
+        var(--primary);
+
 }
+
 
 .hero p {
+
     max-width: 650px;
-    margin: 18px auto 0;
-    color: var(--muted);
+
+    margin:
+        18px auto 0;
+
+    color:
+        var(--muted);
+
     font-size: 16px;
+
     line-height: 1.9;
+
 }
+
+
+/* =====================================================
+   ADVISOR CARD
+===================================================== */
 
 .advisor {
+
     max-width: 900px;
+
     margin: auto;
-    background: linear-gradient(
-        145deg,
-        rgba(15,31,51,.94),
-        rgba(8,20,35,.94)
-    );
-    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,31,51,.94),
+            rgba(8,20,35,.94)
+        );
+
+    border:
+        1px solid var(--border);
+
     border-radius: 26px;
+
     padding: 28px;
+
     box-shadow:
-        0 30px 80px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.025);
+
+        0 30px 80px
+        rgba(0,0,0,.28),
+
+        inset 0 1px 0
+        rgba(255,255,255,.025);
+
 }
+
 
 .section-label {
+
     font-size: 13px;
+
     color: #b5c7d9;
+
     margin-bottom: 10px;
+
 }
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
 
 textarea {
+
     width: 100%;
+
     min-height: 165px;
+
     resize: vertical;
-    border: 1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius: 16px;
-    background: rgba(3,11,21,.65);
-    color: var(--text);
+
+    background:
+        rgba(3,11,21,.65);
+
+    color:
+        var(--text);
+
     padding: 18px;
+
     font-family: inherit;
+
     font-size: 15px;
+
     line-height: 1.9;
+
     outline: none;
+
     transition: .2s;
+
 }
+
 
 textarea::placeholder {
+
     color: #60758a;
+
 }
+
 
 textarea:focus {
-    border-color: rgba(34,211,238,.45);
-    box-shadow: 0 0 0 4px rgba(34,211,238,.06);
+
+    border-color:
+        rgba(34,211,238,.45);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(34,211,238,.06);
+
 }
+
+
+/* =====================================================
+   EXPOSURE
+===================================================== */
 
 .exposure-section {
+
     margin-top: 24px;
+
 }
+
 
 .exposure-grid {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 10px;
+
 }
+
 
 .exposure {
+
     cursor: pointer;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.018);
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.018);
+
     border-radius: 14px;
+
     padding: 13px;
+
     transition: .2s;
+
     user-select: none;
+
 }
+
 
 .exposure:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-1px);
+
+    border-color:
+        var(--border-hover);
+
+    transform:
+        translateY(-1px);
+
 }
+
 
 .exposure.active {
-    border-color: rgba(34,211,238,.55);
-    background: var(--primary-soft);
+
+    border-color:
+        rgba(34,211,238,.55);
+
+    background:
+        var(--primary-soft);
+
+    box-shadow:
+        0 0 0 1px
+        rgba(34,211,238,.08);
+
 }
+
 
 .exposure-title {
+
     font-size: 12px;
+
     font-weight: 600;
+
 }
+
 
 .exposure-desc {
+
     font-size: 10px;
-    color: var(--muted);
+
+    color:
+        var(--muted);
+
     margin-top: 5px;
+
 }
+
+
+/* =====================================================
+   SCREENSHOT
+===================================================== */
 
 .upload {
+
     margin-top: 18px;
-    border: 1px dashed rgba(148,163,184,.22);
+
+    border:
+        1px dashed
+        rgba(148,163,184,.22);
+
     border-radius: 16px;
+
     padding: 17px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
-    background: rgba(255,255,255,.012);
+
+    background:
+        rgba(255,255,255,.012);
+
 }
+
 
 .upload-left {
+
     display: flex;
+
     align-items: center;
+
     gap: 13px;
+
 }
+
 
 .upload-icon {
+
     width: 40px;
+
     height: 40px;
+
     border-radius: 12px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
-    background: rgba(34,211,238,.08);
-    color: var(--primary);
+
+    background:
+        rgba(34,211,238,.08);
+
+    color:
+        var(--primary);
+
     font-size: 20px;
+
 }
+
 
 .upload-title {
+
     font-size: 13px;
+
     font-weight: 600;
+
 }
+
 
 .upload-desc {
-    color: var(--muted);
+
+    color:
+        var(--muted);
+
     font-size: 11px;
+
     margin-top: 3px;
+
 }
+
 
 .file-button {
+
     cursor: pointer;
-    padding: 9px 14px;
+
+    padding:
+        9px 14px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:
+        #c9d8e7;
+
     border-radius: 10px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.035);
-    color: #c9d8e7;
+
     font-family: inherit;
+
     font-size: 11px;
+
 }
+
 
 .file-button:hover {
-    border-color: var(--border-hover);
+
+    border-color:
+        var(--border-hover);
+
 }
+
 
 #fileInput {
+
     display: none;
+
 }
+
 
 .preview {
+
     display: none;
+
     margin-top: 12px;
+
     border-radius: 14px;
+
     overflow: hidden;
-    border: 1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
 }
+
 
 .preview img {
+
     width: 100%;
+
     max-height: 300px;
+
     object-fit: contain;
+
     background: #020810;
+
 }
+
+
+/* =====================================================
+   ANALYZE
+===================================================== */
 
 .action {
+
     margin-top: 22px;
+
 }
+
 
 .analyze {
+
     width: 100%;
+
     border: none;
+
     border-radius: 14px;
+
     padding: 15px;
+
     cursor: pointer;
-    background: linear-gradient(
-        135deg,
-        #22d3ee,
-        #38bdf8
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #22d3ee,
+            #38bdf8
+        );
+
     color: #03111d;
+
     font-family: inherit;
+
     font-size: 14px;
+
     font-weight: 700;
+
     transition: .2s;
+
 }
+
 
 .analyze:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 30px rgba(34,211,238,.15);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(34,211,238,.15);
+
 }
+
 
 .analyze:disabled {
+
     opacity: .5;
+
     cursor: not-allowed;
+
     transform: none;
+
 }
+
+
+/* =====================================================
+   LOADING
+===================================================== */
 
 .loading {
+
     display: none;
+
     text-align: center;
+
     padding: 25px;
-    color: var(--muted);
+
+    color:
+        var(--muted);
+
     font-size: 13px;
+
 }
+
 
 .spinner {
+
     width: 24px;
+
     height: 24px;
-    border: 2px solid rgba(255,255,255,.1);
-    border-top-color: var(--primary);
+
+    border:
+        2px solid
+        rgba(255,255,255,.1);
+
+    border-top-color:
+        var(--primary);
+
     border-radius: 50%;
-    margin: 0 auto 10px;
-    animation: spin .8s linear infinite;
+
+    margin:
+        0 auto 10px;
+
+    animation:
+        spin .8s linear infinite;
+
 }
 
+
 @keyframes spin {
+
     to {
         transform: rotate(360deg);
     }
+
 }
+
+
+/* =====================================================
+   ERROR
+===================================================== */
 
 .error {
+
     display: none;
+
     margin-top: 15px;
-    padding: 13px 15px;
+
+    padding:
+        13px 15px;
+
     border-radius: 12px;
-    background: rgba(251,113,133,.06);
-    border: 1px solid rgba(251,113,133,.18);
-    color: #fda4af;
+
+    background:
+        rgba(251,113,133,.06);
+
+    border:
+        1px solid
+        rgba(251,113,133,.18);
+
+    color:
+        #fda4af;
+
     font-size: 12px;
+
 }
 
-/* FOLLOW UP */
+
+/* =====================================================
+   FOLLOW UP
+===================================================== */
 
 .follow-up {
+
     display: none;
+
     margin-top: 18px;
+
     padding: 18px;
+
     border-radius: 16px;
-    background: rgba(34,211,238,.045);
-    border: 1px solid rgba(34,211,238,.18);
+
+    background:
+        rgba(34,211,238,.045);
+
+    border:
+        1px solid
+        rgba(34,211,238,.18);
+
 }
+
 
 .follow-up-label {
-    color: var(--primary);
+
+    color:
+        var(--primary);
+
     font-size: 11px;
+
     font-weight: 600;
+
     margin-bottom: 8px;
+
 }
+
 
 .follow-up-question {
-    color: #d9e8f5;
+
+    color:
+        #d9e8f5;
+
     font-size: 14px;
+
     line-height: 1.9;
+
     margin-bottom: 13px;
+
 }
+
 
 .follow-up-input {
+
     width: 100%;
-    border: 1px solid var(--border);
+
+    border:
+        1px solid var(--border);
+
     border-radius: 12px;
-    background: rgba(3,11,21,.65);
-    color: var(--text);
+
+    background:
+        rgba(3,11,21,.65);
+
+    color:
+        var(--text);
+
     padding: 13px;
+
     font-family: inherit;
+
     font-size: 13px;
+
     outline: none;
+
 }
+
 
 .follow-up-input:focus {
-    border-color: rgba(34,211,238,.45);
+
+    border-color:
+        rgba(34,211,238,.45);
+
 }
 
-/* RESULTS */
+
+/* =====================================================
+   RESULTS
+===================================================== */
 
 .results {
+
     display: none;
+
     max-width: 1080px;
-    margin: 55px auto 0;
+
+    margin:
+        55px auto 0;
+
 }
+
 
 .results-title {
+
     text-align: center;
+
     margin-bottom: 25px;
+
 }
+
 
 .results-title h2 {
+
     margin: 0;
+
     font-size: 25px;
+
 }
+
 
 .results-title p {
-    margin: 7px 0 0;
-    color: var(--muted);
+
+    margin:
+        7px 0 0;
+
+    color:
+        var(--muted);
+
     font-size: 12px;
+
 }
+
 
 .overview {
+
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
     gap: 14px;
+
 }
+
 
 .result-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
     padding: 22px;
+
 }
+
 
 .card-label {
-    color: var(--muted);
+
+    color:
+        var(--muted);
+
     font-size: 11px;
+
     margin-bottom: 10px;
+
 }
+
 
 .risk-value {
+
     font-size: 34px;
+
     font-weight: 700;
+
 }
+
 
 .risk-score {
+
     font-size: 25px;
+
     font-weight: 600;
+
 }
+
 
 .compromise-value {
+
     font-size: 15px;
+
     font-weight: 600;
+
 }
+
 
 .detail-grid {
+
     margin-top: 14px;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap: 14px;
+
 }
+
 
 .full {
-    grid-column: 1 / -1;
+
+    grid-column:
+        1 / -1;
+
 }
+
 
 .result-card h3 {
-    margin: 0 0 16px;
+
+    margin:
+        0 0 16px;
+
     font-size: 14px;
+
 }
+
 
 .result-card ul {
+
     margin: 0;
+
     padding-right: 18px;
+
 }
+
 
 .result-card li {
+
     margin-bottom: 9px;
-    color: #bdcada;
+
+    color:
+        #bdcada;
+
     font-size: 12px;
+
     line-height: 1.7;
+
 }
+
 
 .tags {
+
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 7px;
+
 }
+
 
 .tag {
-    padding: 6px 9px;
+
+    padding:
+        6px 9px;
+
     border-radius: 8px;
-    background: rgba(148,163,184,.07);
-    border: 1px solid rgba(148,163,184,.10);
-    color: #b9c9d8;
+
+    background:
+        rgba(148,163,184,.07);
+
+    border:
+        1px solid
+        rgba(148,163,184,.10);
+
+    color:
+        #b9c9d8;
+
     font-size: 10px;
+
 }
+
 
 .action-item {
+
     padding: 12px;
+
     border-radius: 11px;
-    background: rgba(255,255,255,.025);
+
+    background:
+        rgba(255,255,255,.025);
+
     margin-bottom: 8px;
+
     font-size: 12px;
+
     line-height: 1.7;
+
 }
+
 
 .action-item:last-child {
+
     margin-bottom: 0;
+
 }
 
+
 .awareness {
+
     background:
+
         linear-gradient(
             135deg,
             rgba(34,211,238,.06),
             rgba(59,130,246,.025)
         );
-    border-color: rgba(34,211,238,.13);
+
+    border-color:
+        rgba(34,211,238,.13);
+
 }
+
 
 .awareness-message {
-    color: #c6d9e9;
+
+    color:
+        #c6d9e9;
+
     font-size: 13px;
+
     line-height: 2;
+
 }
 
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
 .footer {
+
     max-width: 1080px;
-    margin: 60px auto 0;
+
+    margin:
+        60px auto 0;
+
     padding-top: 22px;
-    border-top: 1px solid var(--border);
+
+    border-top:
+        1px solid var(--border);
+
     text-align: center;
-    color: #61778d;
+
+    color:
+        #61778d;
+
     font-size: 10px;
+
 }
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 800px) {
 
     .container {
-        padding: 40px 16px 60px;
+
+        padding:
+            40px 16px 60px;
+
     }
+
 
     .header-inner {
-        padding: 0 16px;
+
+        padding:
+            0 16px;
+
     }
+
 
     .header-status {
+
         display: none;
+
     }
+
 
     .advisor {
+
         padding: 18px;
+
         border-radius: 20px;
+
     }
+
 
     .exposure-grid {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns:
+            1fr 1fr;
+
     }
+
 
     .overview {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
+
 
     .detail-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
+
 
     .full {
-        grid-column: auto;
+
+        grid-column:
+            auto;
+
     }
+
 
     .upload {
-        align-items: flex-start;
+
+        align-items:
+            flex-start;
+
         gap: 12px;
-        flex-direction: column;
+
+        flex-direction:
+            column;
+
     }
 
+
     .file-button {
+
         width: 100%;
+
     }
+
 }
+
 
 @media (max-width: 430px) {
 
     .hero h1 {
+
         font-size: 34px;
+
     }
+
 
     .hero p {
+
         font-size: 13px;
+
     }
 
+
     .exposure-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
+
 }
 
 </style>
@@ -644,11 +1323,17 @@ textarea:focus {
 <body>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="header">
 
 <div class="header-inner">
 
+
 <div class="brand">
+
 
 <div class="logo">
 
@@ -673,6 +1358,7 @@ textarea:focus {
     stroke-linejoin="round"
 />
 
+
 <path
     d="
         M30 49
@@ -685,6 +1371,7 @@ textarea:focus {
     stroke-width="4"
 />
 
+
 <circle
     cx="50"
     cy="49"
@@ -695,6 +1382,7 @@ textarea:focus {
 </svg>
 
 </div>
+
 
 <div class="brand-text">
 
@@ -708,7 +1396,9 @@ WAEI
 
 </div>
 
+
 </div>
+
 
 <div class="header-status">
 
@@ -718,15 +1408,25 @@ WAEI Security Advisor
 
 </div>
 
+
 </div>
 
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main class="container">
 
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
+
 
 <div class="hero-badge">
 
@@ -736,23 +1436,36 @@ Cybersecurity Intelligence
 
 </div>
 
+
 <h1>
+
 خلك <span>واعي</span> قبل ما تتصرف
+
 </h1>
 
+
 <p>
+
 واعي يساعدك تفهم الرسائل والروابط والمواقف المشبوهة،
 ويقيّم مستوى الخطر ويوجهك للخطوة الصحيحة.
+
 </p>
+
 
 </section>
 
+
+<!-- =====================================================
+     ADVISOR
+===================================================== -->
 
 <section class="advisor">
 
 
 <div class="section-label">
+
 وش صار معك؟
+
 </div>
 
 
@@ -764,10 +1477,17 @@ Cybersecurity Intelligence
 ></textarea>
 
 
+<!-- =====================================================
+     USER EXPOSURE
+===================================================== -->
+
 <div class="exposure-section">
 
+
 <div class="section-label">
+
 وش الإجراء اللي صار؟
+
 </div>
 
 
@@ -780,11 +1500,15 @@ Cybersecurity Intelligence
 >
 
 <div class="exposure-title">
+
 استلمت الرسالة فقط
+
 </div>
 
 <div class="exposure-desc">
+
 ما فتحت الرابط
+
 </div>
 
 </div>
@@ -796,11 +1520,15 @@ Cybersecurity Intelligence
 >
 
 <div class="exposure-title">
+
 ضغطت على الرابط
+
 </div>
 
 <div class="exposure-desc">
+
 فتحت الرابط
+
 </div>
 
 </div>
@@ -812,11 +1540,15 @@ Cybersecurity Intelligence
 >
 
 <div class="exposure-title">
+
 أدخلت بيانات الدخول
+
 </div>
 
 <div class="exposure-desc">
+
 اسم مستخدم أو كلمة مرور
+
 </div>
 
 </div>
@@ -828,40 +1560,59 @@ Cybersecurity Intelligence
 >
 
 <div class="exposure-title">
+
 شاركت OTP
+
 </div>
 
 <div class="exposure-desc">
+
 أرسلت رمز التحقق
-</div>
-
-</div>
-
 
 </div>
 
 </div>
 
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     SCREENSHOT
+===================================================== -->
 
 <div class="upload">
 
+
 <div class="upload-left">
 
+
 <div class="upload-icon">
+
 ⌁
+
 </div>
+
 
 <div>
 
 <div class="upload-title">
+
 عندك Screenshot؟
+
 </div>
+
 
 <div class="upload-desc">
+
 تقدر تضيف صورة للرسالة أو الصفحة المشبوهة
+
 </div>
 
 </div>
+
 
 </div>
 
@@ -877,6 +1628,7 @@ Cybersecurity Intelligence
 />
 
 </label>
+
 
 </div>
 
@@ -894,6 +1646,10 @@ Cybersecurity Intelligence
 </div>
 
 
+<!-- =====================================================
+     ANALYZE BUTTON
+===================================================== -->
+
 <div class="action">
 
 <button
@@ -901,11 +1657,17 @@ Cybersecurity Intelligence
     id="analyzeBtn"
     type="button"
 >
+
 حلّل الحالة
+
 </button>
 
 </div>
 
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
 
 <div
     class="loading"
@@ -919,14 +1681,22 @@ Cybersecurity Intelligence
 </div>
 
 
+<!-- =====================================================
+     FOLLOW UP
+===================================================== -->
+
 <div
     class="follow-up"
     id="followUp"
 >
 
+
 <div class="follow-up-label">
+
 سؤال من واعي
+
 </div>
+
 
 <div
     class="follow-up-question"
@@ -935,6 +1705,7 @@ Cybersecurity Intelligence
 —
 </div>
 
+
 <input
     type="text"
     id="followUpInput"
@@ -942,8 +1713,13 @@ Cybersecurity Intelligence
     placeholder="اكتب إجابتك هنا..."
 />
 
+
 </div>
 
+
+<!-- =====================================================
+     ERROR
+===================================================== -->
 
 <div
     class="error"
@@ -954,6 +1730,10 @@ Cybersecurity Intelligence
 </section>
 
 
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
 <section
     class="results"
     id="results"
@@ -962,25 +1742,40 @@ Cybersecurity Intelligence
 
 <div class="results-title">
 
+
 <h2>
+
 نتيجة التقييم
+
 </h2>
 
+
 <p>
+
 WAEI Cybersecurity Assessment
+
 </p>
+
 
 </div>
 
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
 
 <div class="overview">
 
 
 <div class="result-card">
 
+
 <div class="card-label">
+
 مستوى الخطر
+
 </div>
+
 
 <div
     class="risk-value"
@@ -989,14 +1784,19 @@ WAEI Cybersecurity Assessment
 —
 </div>
 
+
 </div>
 
 
 <div class="result-card">
 
+
 <div class="card-label">
+
 Risk Score
+
 </div>
+
 
 <div
     class="risk-score"
@@ -1005,14 +1805,19 @@ Risk Score
 —
 </div>
 
+
 </div>
 
 
 <div class="result-card">
 
+
 <div class="card-label">
+
 حالة الاختراق
+
 </div>
+
 
 <div
     class="compromise-value"
@@ -1021,20 +1826,29 @@ Risk Score
 —
 </div>
 
-</div>
-
 
 </div>
 
+
+</div>
+
+
+<!-- =====================================================
+     DETAILS
+===================================================== -->
 
 <div class="detail-grid">
 
 
 <div class="result-card full">
 
+
 <h3>
+
 ملخص الحالة
+
 </h3>
+
 
 <div
     id="summary"
@@ -1043,14 +1857,19 @@ Risk Score
 —
 </div>
 
+
 </div>
 
 
 <div class="result-card">
 
+
 <h3>
+
 مؤشرات الهجوم
+
 </h3>
+
 
 <div
     id="indicators"
@@ -1058,47 +1877,71 @@ Risk Score
 >
 </div>
 
+
 </div>
 
 
 <div class="result-card">
 
+
 <h3>
+
 الأدلة والحقائق
+
 </h3>
+
 
 <ul id="facts"></ul>
 
+
 </div>
 
 
 <div class="result-card">
 
+
 <h3>
+
 الإجراءات الفورية
+
 </h3>
 
-<div id="immediateActions"></div>
+
+<div
+    id="immediateActions"
+></div>
+
 
 </div>
 
 
 <div class="result-card">
 
+
 <h3>
+
 نقاط التوعية
+
 </h3>
 
-<div id="followUpActions"></div>
+
+<div
+    id="followUpActions"
+></div>
+
 
 </div>
 
 
 <div class="result-card awareness full">
 
+
 <h3>
+
 رسالة واعي
+
 </h3>
+
 
 <div
     id="awareness"
@@ -1106,6 +1949,7 @@ Risk Score
 >
 —
 </div>
+
 
 </div>
 
@@ -1132,9 +1976,15 @@ Cybersecurity Awareness & Intelligent Risk Guidance
 
 <script>
 
+
 /* =====================================================
    WAEI CONFIGURATION
 ===================================================== */
+
+
+/*
+ * Production Webhook
+ */
 
 const WEBHOOK_URL =
     "https://wejdansaleh0293.app.n8n.cloud/webhook/22a301d4-5843-4d63-a1fe-eff21d8a29b7";
@@ -1144,10 +1994,17 @@ const WEBHOOK_URL =
    SESSION
 ===================================================== */
 
+
+/*
+ * نفس session_id يستخدم في المحادثة
+ * حتى يستطيع WAEI متابعة سؤال المتابعة.
+ */
+
 let sessionId =
     localStorage.getItem(
         "waei_session_id"
     );
+
 
 if (!sessionId) {
 
@@ -1159,10 +2016,12 @@ if (!sessionId) {
             .toString(36)
             .substring(2, 9);
 
+
     localStorage.setItem(
         "waei_session_id",
         sessionId
     );
+
 }
 
 
@@ -1173,8 +2032,10 @@ if (!sessionId) {
 let selectedExposure =
     "received_only";
 
+
 let selectedImage =
     null;
+
 
 let waitingForFollowUp =
     false;
@@ -1189,50 +2050,60 @@ const messageInput =
         "message"
     );
 
+
 const analyzeBtn =
     document.getElementById(
         "analyzeBtn"
     );
+
 
 const loading =
     document.getElementById(
         "loading"
     );
 
+
 const errorBox =
     document.getElementById(
         "error"
     );
+
 
 const results =
     document.getElementById(
         "results"
     );
 
+
 const fileInput =
     document.getElementById(
         "fileInput"
     );
+
 
 const preview =
     document.getElementById(
         "preview"
     );
 
+
 const previewImage =
     document.getElementById(
         "previewImage"
     );
+
 
 const followUp =
     document.getElementById(
         "followUp"
     );
 
+
 const followUpQuestion =
     document.getElementById(
         "followUpQuestion"
     );
+
 
 const followUpInput =
     document.getElementById(
@@ -1244,13 +2115,23 @@ const followUpInput =
    EXPOSURE SELECTION
 ===================================================== */
 
+
+/*
+ * عند اختيار الإجراء:
+ * - نغير الشكل البصري
+ * - نحفظ القيمة
+ * - نرسلها إلى WAEI
+ */
+
 document
     .querySelectorAll(".exposure")
     .forEach(card => {
 
+
         card.addEventListener(
             "click",
             () => {
+
 
                 document
                     .querySelectorAll(
@@ -1264,61 +2145,84 @@ document
 
                     });
 
+
                 card.classList.add(
                     "active"
                 );
 
+
                 selectedExposure =
                     card.dataset.value;
 
+
+                console.log(
+                    "Selected exposure:",
+                    selectedExposure
+                );
+
+
             }
         );
+
 
     });
 
 
 /* =====================================================
-   IMAGE PREVIEW
+   SCREENSHOT PREVIEW
 ===================================================== */
 
 fileInput.addEventListener(
     "change",
     event => {
 
+
         const file =
             event.target.files[0];
+
 
         if (!file) {
 
             selectedImage =
                 null;
 
+
             preview.style.display =
                 "none";
 
+
             return;
+
         }
+
 
         selectedImage =
             file;
 
+
         const reader =
             new FileReader();
+
 
         reader.onload =
             event => {
 
+
                 previewImage.src =
                     event.target.result;
+
 
                 preview.style.display =
                     "block";
 
+
             };
+
 
         reader.readAsDataURL(
             file
         );
+
 
     }
 );
@@ -1328,54 +2232,122 @@ fileInput.addEventListener(
    CHANNEL DETECTION
 ===================================================== */
 
-function detectChannel(text) {
+function detectChannel(
+    text
+) {
+
 
     const value =
         String(
             text || ""
         ).toLowerCase();
 
+
     if (
+
         value.includes("sms") ||
-        value.includes("رسالة نصية") ||
-        value.includes("رسالة sms")
+
+        value.includes(
+            "رسالة نصية"
+        ) ||
+
+        value.includes(
+            "رسالة sms"
+        )
+
     ) {
+
         return "sms";
+
     }
 
+
     if (
-        value.includes("whatsapp") ||
-        value.includes("واتساب")
+
+        value.includes(
+            "whatsapp"
+        ) ||
+
+        value.includes(
+            "واتساب"
+        )
+
     ) {
+
         return "whatsapp";
+
     }
 
+
     if (
-        value.includes("email") ||
-        value.includes("إيميل") ||
-        value.includes("ايميل") ||
-        value.includes("بريد")
+
+        value.includes(
+            "email"
+        ) ||
+
+        value.includes(
+            "إيميل"
+        ) ||
+
+        value.includes(
+            "ايميل"
+        ) ||
+
+        value.includes(
+            "بريد"
+        )
+
     ) {
+
         return "email";
+
     }
 
+
     if (
-        value.includes("telegram") ||
-        value.includes("تلجرام") ||
-        value.includes("تيليجرام")
+
+        value.includes(
+            "telegram"
+        ) ||
+
+        value.includes(
+            "تلجرام"
+        ) ||
+
+        value.includes(
+            "تيليجرام"
+        )
+
     ) {
+
         return "telegram";
+
     }
 
+
     if (
-        value.includes("instagram") ||
-        value.includes("انستقرام") ||
-        value.includes("إنستقرام")
+
+        value.includes(
+            "instagram"
+        ) ||
+
+        value.includes(
+            "انستقرام"
+        ) ||
+
+        value.includes(
+            "إنستقرام"
+        )
+
     ) {
+
         return "social_media";
+
     }
+
 
     return "unknown";
+
 }
 
 
@@ -1383,13 +2355,19 @@ function detectChannel(text) {
    ERROR
 ===================================================== */
 
-function showError(message) {
+function showError(
+    message
+) {
+
 
     errorBox.textContent =
         message;
 
+
     errorBox.style.display =
         "block";
+
+
 }
 
 
@@ -1397,7 +2375,10 @@ function showError(message) {
    RISK TRANSLATION
 ===================================================== */
 
-function translateRisk(level) {
+function translateRisk(
+    level
+) {
+
 
     const map = {
 
@@ -1415,11 +2396,17 @@ function translateRisk(level) {
 
     };
 
+
     return (
+
         map[level] ||
+
         level ||
+
         "غير محدد"
+
     );
+
 }
 
 
@@ -1427,10 +2414,25 @@ function translateRisk(level) {
    NORMALIZE RESPONSE
 ===================================================== */
 
-function normalizeResponse(data) {
+
+/*
+ * WAEI / n8n قد يرجع:
+ *
+ * 1. JSON object
+ * 2. JSON string
+ * 3. output
+ * 4. json
+ */
+
+function normalizeResponse(
+    data
+) {
+
 
     if (!data) {
+
         return {};
+
     }
 
 
@@ -1438,16 +2440,20 @@ function normalizeResponse(data) {
         typeof data === "string"
     ) {
 
+
         try {
 
             return JSON.parse(
                 data
             );
 
-        } catch {
+        }
+
+        catch {
 
             return {
-                summary: data
+                summary:
+                    data
             };
 
         }
@@ -1456,12 +2462,21 @@ function normalizeResponse(data) {
 
 
     if (
-        data.output !== undefined &&
-        data.output !== null
+
+        data.output !==
+            undefined &&
+
+        data.output !==
+            null
+
     ) {
 
+
         if (
-            typeof data.output === "object"
+
+            typeof data.output ===
+                "object"
+
         ) {
 
             return data.output;
@@ -1470,8 +2485,12 @@ function normalizeResponse(data) {
 
 
         if (
-            typeof data.output === "string"
+
+            typeof data.output ===
+                "string"
+
         ) {
+
 
             try {
 
@@ -1479,7 +2498,9 @@ function normalizeResponse(data) {
                     data.output
                 );
 
-            } catch {
+            }
+
+            catch {
 
                 return {
                     summary:
@@ -1494,8 +2515,12 @@ function normalizeResponse(data) {
 
 
     if (
+
         data.json &&
-        typeof data.json === "object"
+
+        typeof data.json ===
+            "object"
+
     ) {
 
         return data.json;
@@ -1504,30 +2529,41 @@ function normalizeResponse(data) {
 
 
     return data;
+
 }
 
 
 /* =====================================================
-   FOLLOW-UP
+   FOLLOW UP
 ===================================================== */
 
-function showFollowUp(data) {
+function showFollowUp(
+    data
+) {
+
 
     waitingForFollowUp =
         true;
 
+
     followUpQuestion.textContent =
+
         data.question ||
+
         "أحتاج معلومة إضافية حتى أستطيع تقييم الحالة بشكل أدق.";
+
 
     followUp.style.display =
         "block";
 
+
     followUpInput.value =
         "";
 
+
     analyzeBtn.textContent =
         "إرسال الإجابة";
+
 
     setTimeout(
         () => {
@@ -1537,22 +2573,32 @@ function showFollowUp(data) {
         },
         100
     );
+
 }
 
 
+/* =====================================================
+   HIDE FOLLOW UP
+===================================================== */
+
 function hideFollowUp() {
+
 
     waitingForFollowUp =
         false;
 
+
     followUp.style.display =
         "none";
+
 
     followUpInput.value =
         "";
 
+
     analyzeBtn.textContent =
         "حلّل الحالة";
+
 }
 
 
@@ -1565,48 +2611,72 @@ function renderList(
     items
 ) {
 
+
     element.innerHTML =
         "";
 
+
     if (
-        !Array.isArray(items) ||
+
+        !Array.isArray(
+            items
+        ) ||
+
         items.length === 0
+
     ) {
+
 
         const li =
             document.createElement(
                 "li"
             );
 
+
         li.textContent =
             "لا توجد معلومات إضافية.";
+
 
         element.appendChild(
             li
         );
 
+
         return;
+
     }
+
 
     items.forEach(
         item => {
+
 
             const li =
                 document.createElement(
                     "li"
                 );
 
+
             li.textContent =
-                typeof item === "string"
+
+                typeof item ===
+                    "string"
+
                     ? item
-                    : JSON.stringify(item);
+
+                    : JSON.stringify(
+                        item
+                    );
+
 
             element.appendChild(
                 li
             );
 
+
         }
     );
+
 }
 
 
@@ -1619,45 +2689,72 @@ function renderActions(
     items
 ) {
 
+
     element.innerHTML =
         "";
 
+
     if (
-        !Array.isArray(items) ||
+
+        !Array.isArray(
+            items
+        ) ||
+
         items.length === 0
+
     ) {
 
+
         element.innerHTML = `
+
             <div class="action-item">
+
                 لا توجد إجراءات إضافية.
+
             </div>
+
         `;
 
+
         return;
+
     }
+
 
     items.forEach(
         item => {
+
 
             const div =
                 document.createElement(
                     "div"
                 );
 
+
             div.className =
                 "action-item";
 
+
             div.textContent =
-                typeof item === "string"
+
+                typeof item ===
+                    "string"
+
                     ? item
-                    : JSON.stringify(item);
+
+                    : JSON.stringify(
+                        item
+                    );
+
 
             element.appendChild(
                 div
             );
 
+
         }
     );
+
 }
 
 
@@ -1669,62 +2766,113 @@ function displayResult(
     rawData
 ) {
 
+
     const data =
         normalizeResponse(
             rawData
         );
 
+
+    /*
+     * الشكل الحقيقي للنتيجة:
+     *
+     * quality_gate
+     * final_decision
+     *     final_decision
+     *     why
+     *     immediate_actions
+     *     awareness_points
+     *     reporting
+     *     user_message
+     *     safety_note
+     */
+
+
     const final =
         data.final_decision ||
         {};
+
 
     const decision =
         final.final_decision ||
         {};
 
 
+    /* =================================================
+       RISK LEVEL
+    ================================================= */
+
     document.getElementById(
         "riskLevel"
     ).textContent =
+
         translateRisk(
             decision.risk_level
         );
 
 
+    /* =================================================
+       RISK SCORE
+    ================================================= */
+
     document.getElementById(
         "riskScore"
     ).textContent =
+
         decision.risk_score !==
-        undefined
+            undefined
 
             ? decision.risk_score
 
             : "—";
 
 
+    /* =================================================
+       COMPROMISE STATUS
+    ================================================= */
+
+
     /*
-     * لا ندعي حدوث اختراق
-     * ما لم يدعم WAEI ذلك صراحة.
+     * مهم:
+     *
+     * لا نقول "تم الاختراق"
+     * إلا إذا كان هناك دليل مؤكد.
+     *
+     * لذلك الواجهة الحالية لا تفترض الاختراق.
      */
 
     document.getElementById(
         "compromiseStatus"
     ).textContent =
+
         "لم يتم إثبات الاختراق";
 
+
+    /* =================================================
+       SUMMARY
+    ================================================= */
 
     document.getElementById(
         "summary"
     ).textContent =
+
         decision.summary ||
+
         "تم تحليل الحالة بناءً على المعلومات المتاحة.";
 
 
+    /* =================================================
+       WHY / INDICATORS
+    ================================================= */
+
     const why =
+
         Array.isArray(
             final.why
         )
+
             ? final.why
+
             : [];
 
 
@@ -1732,6 +2880,7 @@ function displayResult(
         document.getElementById(
             "indicators"
         );
+
 
     indicatorsBox.innerHTML =
         "";
@@ -1741,91 +2890,151 @@ function displayResult(
         why.length === 0
     ) {
 
+
         const tag =
             document.createElement(
                 "span"
             );
 
+
         tag.className =
             "tag";
 
+
         tag.textContent =
             "لا توجد مؤشرات إضافية.";
+
 
         indicatorsBox.appendChild(
             tag
         );
 
-    } else {
+
+    }
+
+    else {
+
 
         why.forEach(
             item => {
+
 
                 const tag =
                     document.createElement(
                         "span"
                     );
 
+
                 tag.className =
                     "tag";
 
+
                 tag.textContent =
-                    typeof item === "string"
+
+                    typeof item ===
+                        "string"
+
                         ? item
-                        : JSON.stringify(item);
+
+                        : JSON.stringify(
+                            item
+                        );
+
 
                 indicatorsBox.appendChild(
                     tag
                 );
 
+
             }
         );
+
 
     }
 
 
+    /* =================================================
+       FACTS
+    ================================================= */
+
     renderList(
+
         document.getElementById(
             "facts"
         ),
+
         why
+
     );
 
 
+    /* =================================================
+       IMMEDIATE ACTIONS
+    ================================================= */
+
     renderActions(
+
         document.getElementById(
             "immediateActions"
         ),
+
         Array.isArray(
             final.immediate_actions
         )
+
             ? final.immediate_actions
+
             : []
+
     );
 
 
+    /* =================================================
+       AWARENESS POINTS
+    ================================================= */
+
     renderActions(
+
         document.getElementById(
             "followUpActions"
         ),
+
         Array.isArray(
             final.awareness_points
         )
+
             ? final.awareness_points
+
             : []
+
     );
 
+
+    /* =================================================
+       USER MESSAGE
+    ================================================= */
 
     document.getElementById(
         "awareness"
     ).textContent =
+
         final.user_message ||
+
         final.safety_note ||
+
         "كن واعياً، ولا تتخذ أي إجراء قبل التحقق من الجهة الرسمية.";
 
 
+    /* =================================================
+       RESET FOLLOW UP
+    ================================================= */
+
     hideFollowUp();
 
+
+    /* =================================================
+       SHOW RESULTS
+    ================================================= */
 
     results.style.display =
         "block";
@@ -1834,17 +3043,22 @@ function displayResult(
     setTimeout(
         () => {
 
+
             results.scrollIntoView({
+
                 behavior:
                     "smooth",
 
                 block:
                     "start"
+
             });
+
 
         },
         100
     );
+
 }
 
 
@@ -1856,23 +3070,37 @@ async function sendToWAEI(
     message
 ) {
 
+
+    /*
+     * هذا هو الـpayload
+     * الذي يستقبله Webhook في n8n.
+     */
+
     const payload = {
+
 
         session_id:
             sessionId,
 
+
         message:
             message,
 
+
         channel:
+
             waitingForFollowUp
+
                 ? "conversation"
+
                 : detectChannel(
                     message
                 ),
 
+
         user_exposure:
             selectedExposure,
+
 
         has_screenshot:
             Boolean(
@@ -1890,29 +3118,40 @@ async function sendToWAEI(
 
     const response =
         await fetch(
+
             WEBHOOK_URL,
+
             {
+
                 method:
                     "POST",
 
+
                 headers: {
+
                     "Content-Type":
                         "application/json; charset=UTF-8"
+
                 },
+
 
                 body:
                     JSON.stringify(
                         payload
                     )
+
             }
+
         );
 
 
     if (!response.ok) {
 
         throw new Error(
+
             "Webhook HTTP " +
             response.status
+
         );
 
     }
@@ -1943,11 +3182,14 @@ async function sendToWAEI(
             text
         );
 
-    } catch {
+    }
+
+    catch {
 
         return text;
 
     }
+
 }
 
 
@@ -1956,8 +3198,11 @@ async function sendToWAEI(
 ===================================================== */
 
 analyzeBtn.addEventListener(
+
     "click",
+
     async () => {
+
 
         errorBox.style.display =
             "none";
@@ -1967,13 +3212,14 @@ analyzeBtn.addEventListener(
             "";
 
 
-        /*
-         * FOLLOW-UP ANSWER
-         */
+        /* =============================================
+           FOLLOW-UP ANSWER
+        ============================================= */
 
         if (
             waitingForFollowUp
         ) {
+
 
             message =
                 followUpInput.value.trim();
@@ -1981,23 +3227,29 @@ analyzeBtn.addEventListener(
 
             if (!message) {
 
+
                 showError(
                     "اكتبي إجابتك أولاً."
                 );
 
+
                 followUpInput.focus();
 
+
                 return;
+
             }
+
 
         }
 
 
-        /*
-         * FIRST MESSAGE
-         */
+        /* =============================================
+           FIRST MESSAGE
+        ============================================= */
 
         else {
+
 
             message =
                 messageInput.value.trim();
@@ -2005,24 +3257,30 @@ analyzeBtn.addEventListener(
 
             if (!message) {
 
+
                 showError(
                     "اكتبي تفاصيل الحالة أولاً."
                 );
 
+
                 messageInput.focus();
 
+
                 return;
+
             }
+
 
         }
 
 
-        /*
-         * LOADING
-         */
+        /* =============================================
+           LOADING
+        ============================================= */
 
         analyzeBtn.disabled =
             true;
+
 
         loading.style.display =
             "block";
@@ -2030,11 +3288,20 @@ analyzeBtn.addEventListener(
 
         try {
 
+
+            /* =========================================
+               CALL WAEI
+            ========================================= */
+
             const data =
                 await sendToWAEI(
                     message
                 );
 
+
+            /* =========================================
+               NORMALIZE
+            ========================================= */
 
             const normalized =
                 normalizeResponse(
@@ -2042,35 +3309,42 @@ analyzeBtn.addEventListener(
                 );
 
 
-            /*
-             * FOLLOW-UP
-             */
+            /* =========================================
+               FOLLOW-UP
+            ========================================= */
 
             if (
+
                 normalized.type ===
-                "follow_up"
+                    "follow_up"
+
             ) {
+
 
                 showFollowUp(
                     normalized
                 );
 
+
                 return;
+
             }
 
 
-            /*
-             * FINAL RESULT
-             */
+            /* =========================================
+               FINAL RESULT
+            ========================================= */
 
             displayResult(
                 normalized
             );
 
+
         }
 
 
         catch (error) {
+
 
             console.error(
                 "WAEI Error:",
@@ -2079,45 +3353,62 @@ analyzeBtn.addEventListener(
 
 
             showError(
-                "تعذر الاتصال بواعي. تأكدي أن الـ Workflow يعمل في n8n ثم حاولي مرة أخرى."
+
+                "تعذر الاتصال بواعي. " +
+                "تأكدي أن الـWorkflow يعمل في n8n ثم حاولي مرة أخرى."
+
             );
+
 
         }
 
 
         finally {
 
+
             analyzeBtn.disabled =
                 false;
+
 
             loading.style.display =
                 "none";
 
+
         }
 
+
     }
+
 );
 
 
 /* =====================================================
-   ENTER TO SEND FOLLOW-UP
+   ENTER = SEND FOLLOW-UP
 ===================================================== */
 
 followUpInput.addEventListener(
+
     "keydown",
+
     event => {
+
 
         if (
             event.key === "Enter"
         ) {
 
+
             event.preventDefault();
+
 
             analyzeBtn.click();
 
+
         }
 
+
     }
+
 );
 
 
@@ -2127,8 +3418,32 @@ followUpInput.addEventListener(
 
 hideFollowUp();
 
+
+/* =====================================================
+   DEBUG
+===================================================== */
+
+console.log(
+    "WAEI Frontend initialized."
+);
+
+
+console.log(
+    "Session ID:",
+    sessionId
+);
+
+
+console.log(
+    "Webhook:",
+    WEBHOOK_URL
+);
+
+
 </script>
+
 
 </body>
 
 </html>
+
